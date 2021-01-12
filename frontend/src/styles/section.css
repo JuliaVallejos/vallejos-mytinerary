@@ -1,0 +1,7 @@
+.cities{
+    display: flex;
+    width:80%;
+}
+.cities img{
+    width:25%;
+}

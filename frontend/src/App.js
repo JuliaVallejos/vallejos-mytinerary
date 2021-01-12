@@ -1,14 +1,14 @@
 
 import './App.css';
-import Header from './componentes/Header';
-import Subtitle from './componentes/Subtitle'
+import Header from './components/Header';
+
+import Section from './components/Section'
 
 function App() {
   return (
-    <div className="App">
-     
+    <div className="App">    
         <Header />
-        <Subtitle />
+        <Section/>
       
     </div>
   );
