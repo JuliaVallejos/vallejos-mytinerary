@@ -1,7 +1,43 @@
-.cities{
-    display: flex;
-    width:80%;
+.message{
+    display:flex;
+  color:blue;
 }
-.cities img{
-    width:25%;
+
+.cities{
+    display: flex!important;
+    justify-content: center;
+    width:100%;
+    min-height: 60vh;
+}
+div.carousel.slide{
+    height: 100%;;
+}
+
+div.carousel-item{
+    height:411px;
+
+}
+.d-block{
+    width:600px!important;
+}
+
+.slides{
+   height: 100%;
+    display:flex;
+
+    flex-wrap:wrap;
+ 
+}
+.slides div{
+    display:flex;
+    align-items: center;
+    justify-content: center;
+    color:rgb(0, 0, 0);
+   
+}
+.slides h1{
+    background-color:white;
+    width: 100%;
+    border: 1px solid blue;
+    text-align: center;
 }

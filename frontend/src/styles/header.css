@@ -1,20 +1,20 @@
 header{
     background-color: rgba(255, 0, 0, 0.349);
     height: 45vh;
-    display: flex;
+    display: flex!important;
     justify-content: space-between;
     background-image: url(https://www.altacatamarca.tur.ar/wp-content/uploads/2014/11/Travel-the-world-Stock-HD-Wallpaper.jpg);
     background-size: cover;
     background-position:100% 62%;
 }
 .logo{
-    width:20%;
+    width:60%;
 }
 .logo img{
     width:30%;
 }
 nav{
-    display:flex;
+    display:flex!important;
     justify-content: space-around;
     align-items: center;
     width:30%;
