@@ -1,32 +1,82 @@
-.message{
+section{
+    min-height: 150vh;
+    padding:0;
+    width: 100%;
+    background-image:url('../assets/fondo_mapa.jpg');
+    background-size:22% 30%;
+    background-attachment:fixed;
+    background-position: top;
+}
+.slogan{
     display:flex;
-  color:blue;
+    flex-direction: column;
+   align-items: center;
+ 
+}
+.slogan h3{
+    background-color: rgb(136, 12, 12);
+    width:100%;
+    padding:1%;
+    text-align: center;
+    color:white
+   
+}
+.slogan button{
+    padding:4%;
+    background-color: transparent;
+    border:none;
+
+}
+.next_page{
+    width:5vw;
+}
+.next_page img{
+    width:100%;
+    border-radius: 100%;
 }
 
-.cities{
-    display: flex!important;
-    justify-content: center;
-    width:100%;
-    min-height: 60vh;
+.PopularMYtineraries{
+    padding-top:3%;
+    margin:auto;
+    width:80%;
+    display:flex;
+    flex-direction:column;
+    align-items: center;
+
+}
+.PopularMYtineraries>h2{
+    background-color: rgb(136, 12, 12);
+    padding:1% 2%;
+    color:whitesmoke;
+    border-radius:30%;
 }
 div.carousel.slide{
-    height: 100%;;
+    width:100%;
+    border:6px dotted rgba(136, 12, 12, 0.425);
 }
 
-div.carousel-item{
-    height:411px;
+.carousel-control-next-icon{
+    background-image:url('../assets/avion\ -\ copia.png');
+    padding:34%;
+} 
+.carousel-control-prev-icon{
+    background-image:url('../assets/avion.png');
+    padding:34%;
 
 }
-.d-block{
-    width:600px!important;
-}
 
-.slides{
-   height: 100%;
-    display:flex;
-
-    flex-wrap:wrap;
+.carousel-caption h2{
+    font-weight: bold;
+    
+    text-shadow:3px 3px  0  rgb(255, 255, 255);
+    color:rgb(0, 0, 0);
+    
  
+}
+.slides{
+   height: 40vw;
+    display:flex;
+    flex-wrap:wrap;
 }
 .slides div{
     display:flex;
@@ -36,8 +86,10 @@ div.carousel-item{
    
 }
 .slides h1{
-    background-color:white;
+    background-color:rgba(255, 255, 255, 0.5);
     width: 100%;
-    border: 1px solid blue;
     text-align: center;
+}
+div.photo_slide:hover{
+    color:rgb(39, 12, 88);
 }
