@@ -1,15 +1,19 @@
+import {Link} from 'react-router-dom'
 const Logo = () =>{
     
     return(
-        <div className='logo' style={{
-            margin:'0.5% 2%',
-            width:'18%',
-            backgroundImage:'url("./assets/logo.png")',
-            backgroundSize:'contain',
-            backgroundRepeat:'no-repeat'
-        }}>
-                 
-        </div>
+        <Link to='/'>
+            <div className='logo' style={{
+                width:'45vw',
+                height:'50%',
+                backgroundImage:'url("./assets/logo.png")',
+                backgroundSize:'45%',
+                backgroundRepeat:'no-repeat',
+                margin:'1% 6%'
+            }}>
+            
+            </div>
+        </Link>
     )
 }
 export default Logo

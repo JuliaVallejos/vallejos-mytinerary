@@ -1,19 +1,18 @@
 section{
-    min-height: 150vh;
-    padding:0;
+    min-height: 160vh;
     width: 100%;
-    background-image:url('../assets/fondo_mapa.jpg');
-    background-size:22% 30%;
+    background-image:url('../assets/fondo_mapa2.jpg');
     background-attachment:fixed;
     background-position: top;
 }
+
 .slogan{
     display:flex;
     flex-direction: column;
    align-items: center;
  
 }
-.slogan h3{
+.slogan h3, .cities h2{
     background-color: rgb(136, 12, 12);
     width:100%;
     padding:1%;
@@ -28,13 +27,28 @@ section{
 
 }
 .next_page{
-    width:5vw;
+    width:25%;
+    height: 20vh;
+    margin-top:3%;
+  
 }
 .next_page img{
     width:100%;
-    border-radius: 100%;
+    border: 12px solid rgb(132,12,12);
+   
+    
 }
+.next_page h5{
+    color:black;
+    font-weight: bold;
+    font-size: 120%;
 
+}
+.next_page a:hover{
+   padding:4%;
+   text-decoration:none;
+   display: flex;
+}
 .PopularMYtineraries{
     padding-top:3%;
     margin:auto;
@@ -48,7 +62,10 @@ section{
     background-color: rgb(136, 12, 12);
     padding:1% 2%;
     color:whitesmoke;
-    border-radius:30%;
+    border-radius: 8px;
+    user-select: none;
+    margin-bottom: 2%;
+  
 }
 div.carousel.slide{
     width:100%;
@@ -66,10 +83,11 @@ div.carousel.slide{
 }
 
 .carousel-caption h2{
-    font-weight: bold;
-    
+    font-weight: bold; 
     text-shadow:3px 3px  0  rgb(255, 255, 255);
     color:rgb(0, 0, 0);
+    user-select: none;
+    font-size: 4em;
     
  
 }
@@ -89,7 +107,14 @@ div.carousel.slide{
     background-color:rgba(255, 255, 255, 0.5);
     width: 100%;
     text-align: center;
+    user-select: none;
 }
 div.photo_slide:hover{
     color:rgb(39, 12, 88);
+    border:3px solid rgb(39, 12, 88);
+}
+/* Page Cities */
+.cities{
+    min-height: 100vh;
+    text-align: center;
 }

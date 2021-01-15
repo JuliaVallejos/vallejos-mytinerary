@@ -1,7 +1,43 @@
+html *{
+    margin:0;
+    padding:0;
+    box-sizing: border-box;
+
+}
 footer{
-    background-color: rgba(6, 6, 129, 0.247);
-    height: 20vh;
+    background-color: rgb(255, 255, 255);
+    height: 25vh;
     width:100%;
     display:flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items:center;
+    
 
+}
+.top_footer{
+    display:flex;
+    background-image: url('../assets/footer-image.jpg');
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position:50% 50% ;
+    justify-content: space-around;
+    align-items: center;
+    height: 80%;
+    width:100%;
+    border-top: 3px solid  rgb(132,12,12);
+}
+
+footer p{
+    padding:0.5%;
+    color:white;
+    background-color: rgb(132,12,12);
+    width:100%;
+   
+    text-align: center;
+}
+footer nav p{
+    color:black;
+    background-color: transparent;
+    
 }
