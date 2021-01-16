@@ -10,7 +10,7 @@ const NavFooter = () =>{
             <p>Cities</p>
             </Link>
             <Link to='/'>
-            <p>Page 3</p>
+            <p>Other</p>
             </Link>     
         </nav>
     )

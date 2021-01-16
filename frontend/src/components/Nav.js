@@ -13,7 +13,7 @@ const Nav = () =>{
             <p>CITIES</p>
             </Link>
             <Link to='/'>
-            <p>PAGE 3</p>
+            <p>OTHER</p>
             </Link>
             
         </nav>
