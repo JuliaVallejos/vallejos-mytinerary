@@ -6,16 +6,8 @@ export default class TopFooter extends Component{
         
         return(
             
-            <div className="top_footer">
-                <div style={{
-                    backgroundImage:'url("./assets/logo.png")',
-                    width:'10vw',
-                    marginTop:'3%',
-                    backgroundSize:'contain',
-                    backgroundRepeat:'no-repeat',
-                    height:'100%',
-                   
-                }}>
+            <div className='top_footer'>
+                <div className='logo_footer' >
                 </div>
                 <NavFooter/>
             </div>

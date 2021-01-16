@@ -7,10 +7,10 @@ const Nav = () =>{
                 {backgroundColor:'white',
                     borderRadius:'100%'}}></img>
             <Link to='/'>
-            <p>PAGE 1</p>
+            <p>HOME</p>
             </Link>
-            <Link to='/'>
-            <p>PAGE 2</p>
+            <Link to='/cities'>
+            <p>CITIES</p>
             </Link>
             <Link to='/'>
             <p>PAGE 3</p>

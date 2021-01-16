@@ -1,5 +1,6 @@
+import './styles/media.css'
+import './styles/App.css';
 
-import './App.css';
 import {Route,BrowserRouter,Switch} from 'react-router-dom'
 import Header from './components/Header';
 import Section from './components/Section'

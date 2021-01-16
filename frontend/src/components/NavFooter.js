@@ -3,12 +3,11 @@ const NavFooter = () =>{
    
     return(
         <nav>
-            <h5>Nav Menu</h5>
             <Link to='/'>
-            <p>Page 1</p>
+            <p>Home</p>
             </Link>
-            <Link to='/'>
-            <p>Page 2</p>
+            <Link to='/cities'>
+            <p>Cities</p>
             </Link>
             <Link to='/'>
             <p>Page 3</p>

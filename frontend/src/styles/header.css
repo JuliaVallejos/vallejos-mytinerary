@@ -1,12 +1,12 @@
-
+@media(min-width:1150px){
 header{
-    height: 45vh;
+    height: 40vh;
     width: 100%;
     display: flex!important;
     justify-content: space-between;
     background-image: url(../assets/banner.jpg);
     background-size: cover;
-    background-position:100% 62%;
+    background-position:100% 58%;
 }
 
 header nav{
@@ -32,4 +32,13 @@ header nav a:hover{
 header nav img{
     width:15%;
     margin-bottom:2%;
+}
+.logo{
+    width:45vw;
+    height:60%;
+    background-image:url("../assets/logo.png");
+    background-size:45%;
+    background-repeat:no-repeat;
+    margin: 1% 6%;
+}
 }

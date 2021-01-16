@@ -1,6 +1,6 @@
 import Subtitle from './Subtitle'
 import CarouselCities from './CarouselCities'
-import '../styles/section.css'
+
 
 const Section = () =>{
     

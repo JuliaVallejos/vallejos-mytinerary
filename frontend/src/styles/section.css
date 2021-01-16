@@ -1,5 +1,6 @@
+@media(min-width:1150px){
 section{
-    min-height: 160vh;
+    min-height: 150vh;
     width: 100%;
     background-image:url('../assets/fondo_mapa2.jpg');
     background-attachment:fixed;
@@ -20,12 +21,7 @@ section{
     color:white
    
 }
-.slogan button{
-    padding:4%;
-    background-color: transparent;
-    border:none;
 
-}
 .next_page{
     width:25%;
     height: 20vh;
@@ -38,12 +34,7 @@ section{
    
     
 }
-.next_page h5{
-    color:black;
-    font-weight: bold;
-    font-size: 120%;
 
-}
 .next_page a:hover{
    padding:4%;
    text-decoration:none;
@@ -117,4 +108,5 @@ div.photo_slide:hover{
 .cities{
     min-height: 100vh;
     text-align: center;
+}
 }

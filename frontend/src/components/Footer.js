@@ -1,5 +1,4 @@
 
-import '../styles/footer.css'
 import TopFooter from './TopFooter'
 
 const Footer = () =>{
