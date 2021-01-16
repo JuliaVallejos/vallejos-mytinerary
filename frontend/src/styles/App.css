@@ -1,0 +1,242 @@
+@media(min-width:1150px){
+html *{
+    margin:0;
+    padding:0;
+    box-sizing: border-box;
+}
+#root{
+    font-family: 'Yusei Magic', sans-serif;
+    min-height: 100vh;
+}
+#root a:hover{
+    text-decoration: none;
+    
+}
+
+/* HEADER */
+header{
+    height: 40vh;
+    width: 100%;
+    display: flex!important;
+    justify-content: space-between;
+    background-image: url(../assets/banner.jpg);
+    background-size: cover;
+    background-position:100% 58%;
+}
+
+header nav{
+    display:flex!important;
+    justify-content: space-around;
+    align-items: center;
+    width:30%;
+     align-self: flex-end;
+     padding-bottom: 3%;
+     margin-right:2%;
+}
+header nav a{
+    background-color:rgb(132,12,12);
+    height: 100%;
+    padding:1% 7%;
+    border-radius:4px;
+    color:rgb(255, 255, 255);
+    display:flex;
+    align-items: center;
+ 
+}
+header nav a:hover{
+    background-color: rgba(122, 122, 122, 0.658);
+    color:rgb(132,12,12)
+}
+header nav p{
+    height: 100%;
+    margin:0;
+    
+}
+
+header nav img{
+    width:15%;
+    margin-bottom:2%;
+}
+.logo{
+    width:45vw;
+    height:60%;
+    background-image:url("../assets/logo.png");
+    background-size:45%;
+    background-repeat:no-repeat;
+    margin: 1% 6%;
+}
+/* SECTION */
+section{
+    min-height: 150vh;
+    width: 100%;
+    background-image:url('../assets/fondo_mapa2.jpg');
+    background-attachment:fixed;
+    background-position: top;
+}
+
+.slogan{
+    display:flex;
+    flex-direction: column;
+   align-items: center;
+ 
+}
+.slogan h3, .cities h3{
+    background-color: rgb(136, 12, 12);
+    width:100%;
+    padding:1%;
+    text-align: center;
+    color:white
+   
+}
+
+.next_page{
+    width:25%;
+    height: 20vh;
+    margin-top:3%;
+  
+}
+.next_page img{
+    width:100%;
+    border: 12px solid rgb(132,12,12);
+   
+    
+}
+
+.next_page a:hover{
+   padding:4%;
+   text-decoration:none;
+   display: flex;
+}
+.PopularMYtineraries{
+    padding-top:3%;
+    margin:auto;
+    width:80%;
+    display:flex;
+    flex-direction:column;
+    align-items: center;
+
+}
+.PopularMYtineraries>h2{
+    background-color: rgb(136, 12, 12);
+    padding:1% 2%;
+    color:whitesmoke;
+    border-radius: 8px;
+    user-select: none;
+    margin-bottom: 2%;
+  
+}
+div.carousel.slide{
+    width:100%;
+    border:6px dotted rgba(136, 12, 12, 0.425);
+}
+
+.carousel-control-next-icon{
+    background-image:url('../assets/avion-next.png')!important;
+    padding:34%;
+} 
+.carousel-control-prev-icon{
+    background-image:url('../assets/avion-prev.png')!important;
+    padding:34%;
+
+}
+
+.carousel-caption h2{
+    font-weight: bold; 
+    text-shadow:3px 3px  0  rgb(255, 255, 255);
+    color:rgb(0, 0, 0);
+    user-select: none;
+    font-size: 4em;
+    
+ 
+}
+.slides{
+   height: 40vw;
+    display:flex;
+    flex-wrap:wrap;
+}
+.slides div{
+    display:flex;
+    align-items: center;
+    justify-content: center;
+    color:rgb(0, 0, 0);
+   
+}
+.slides h1{
+    background-color:rgba(255, 255, 255, 0.5);
+    width: 100%;
+    text-align: center;
+    user-select: none;
+}
+div.photo_slide:hover{
+    color:rgb(39, 12, 88);
+    border:3px solid rgb(39, 12, 88);
+}
+/* Page Cities */
+.cities{
+    min-height: 100vh;
+    text-align: center;
+}
+/* FOOTER */
+
+footer{
+    background-color: rgb(255, 255, 255);
+    height: 25vh;
+    width:100%;
+    display:flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items:center;
+    
+
+}
+.top_footer{
+    display:flex;
+    background-image: url('../assets/footer-image.jpg');
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position:50% 50% ;
+    justify-content: space-around;
+    align-items: center;
+    height: 80%;
+    width:100%;
+    border-top: 3px solid  rgb(132,12,12);
+}
+.logo_footer{
+
+        background-image:url('../assets/logo.png');
+        width:10vw;
+        margin-top:3%;
+        background-size:contain;
+        background-repeat:no-repeat;
+        height:100%;
+  
+}
+footer p{
+    padding:0.4%;
+    font-size:0.9em;
+    color:white;
+    background-color: rgb(132,12,12);
+    width:100%;
+    text-align: center;
+}
+
+footer nav {
+ width:10%;
+ height: 60%;
+ display: flex;
+ flex-direction: column;
+ 
+ align-items: center;
+
+}
+footer nav a{
+   width:40%;
+    height: 33%;
+
+}
+footer nav p{
+    color:black;
+    background-color: transparent;
+}
+
+}

@@ -1,7 +1,7 @@
 import Carousel from 'react-bootstrap/Carousel'
 import MapSlide from './MapSlide'
 import 'bootstrap/dist/css/bootstrap.min.css';
-import '../styles/section.css'
+
 
 const CarouselCities = () =>{
     const citiesAsia = [
@@ -12,7 +12,7 @@ const CarouselCities = () =>{
     ]
     const citiesEurope = [
         {title:'Prague', url:'prague.jpg'},
-        {title:'Roma', url:'roma.jpg'},
+        {title:'Rome', url:'roma.jpg'},
         {title:'Atenas', url:'atenas.jpg'},
         {title:'Paris', url:'paris.jpg'}
     ]

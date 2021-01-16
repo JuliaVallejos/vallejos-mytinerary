@@ -1,10 +1,9 @@
-import '../styles/section.css'
 
 const Cities= () =>{
     
     return(
         <div className="cities">
-            <h2>Cities Page</h2> 
+            <h3>Cities Page</h3> 
         </div>
        
     )
