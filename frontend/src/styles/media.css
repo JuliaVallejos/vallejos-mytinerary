@@ -50,8 +50,10 @@
      
     }
     header nav a:hover{
-        background-color: rgb(210, 210, 255);
-        color:rgb(132,12,12)
+        background-color: rgba(122, 122, 122, 0.658);
+        color:rgb(132,12,12);
+        transition: color 0.2s, background-color 0.5s;
+    
     }
     header nav img{
         width:15%;
@@ -66,8 +68,8 @@
         min-height: 50vh;
         width: 100%;
         background-image:url('../assets/fondo_mapa2.jpg');
-        background-attachment:fixed;
-        background-position: center;   
+        background-position: -25% ;   
+        background-size: 70%;
     }
     
     .slogan{
@@ -89,22 +91,23 @@
 
     .next_page{
         width:50%;
-       
         margin:3%;
       
     }
     .next_page img{
         width:100%;
-        border: 8px solid rgb(132,12,12);
-       
-        
+        border: 4px solid rgb(132,12,12);
+    
     }
   
     .next_page a:hover{
-       padding:4%;
-       text-decoration:none;
-       display: flex;
-    }
+        transform:scale(1.1);
+        text-decoration:none;
+        display: flex;
+        transition-duration: 600ms;
+        transition-delay: 100ms;
+        
+     }
     
     .PopularMYtineraries{
        
@@ -130,7 +133,18 @@
         width:100%;
         border:3px dotted rgba(136, 12, 12, 0.425);
     }
-    
+    a.carousel-control-next{
+        margin-right:-9%;
+        opacity: .8;
+    }
+    a.carousel-control-prev{
+        margin-left:-9%;
+        opacity:.8;
+    }
+    a.carousel-control-prev:hover,a.carousel-control-next:hover{
+        opacity:1;
+       
+    }
     .carousel-control-next-icon{
         background-image: url('../assets/avion-next.png')!important;
         padding:54%;
@@ -272,8 +286,10 @@
        
     }
     header nav a:hover{
-        background-color: rgb(210, 210, 255);
-        color:rgb(132,12,12)
+        background-color: rgba(122, 122, 122, 0.658);
+        color:rgb(132,12,12);
+        transition: color 0.2s, background-color 0.5s;
+    
     }
     header nav p{
         margin:0;
@@ -321,10 +337,13 @@
     }
   
     .next_page a:hover{
-       padding:4%;
-       text-decoration:none;
-       display: flex;
-    }
+        transform:scale(1.1);
+        text-decoration:none;
+        display: flex;
+        transition-duration: 600ms;
+        transition-delay: 100ms;
+        
+     }
     .PopularMYtineraries{
         margin:3% auto;
         width:80%;
@@ -335,7 +354,7 @@
     }
     .PopularMYtineraries>h2{
         background-color: rgb(136, 12, 12);
-        padding:2% 3%;
+        padding:1% 3%;
         font-size:1.5em;
         text-align:center;
         color:whitesmoke;
@@ -348,7 +367,18 @@
         width:100%;
         border:3px dotted rgba(136, 12, 12, 0.425);
     }
-    
+    a.carousel-control-next{
+        margin-right:-9%;
+        opacity: .8;
+    }
+    a.carousel-control-prev{
+        margin-left:-9%;
+        opacity:.8;
+    }
+    a.carousel-control-prev:hover,a.carousel-control-next:hover{
+        opacity:1;
+       
+    }
     .carousel-control-next-icon{
         background-image: url('../assets/avion-next.png')!important;
         padding:34%;

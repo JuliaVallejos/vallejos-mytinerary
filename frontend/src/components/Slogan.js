@@ -1,6 +1,6 @@
 import NextPage from "./NextPage"
 
-const Subtitle = () =>{
+const Slogan = () =>{
  
     return(
         <div className='slogan'>
@@ -10,4 +10,4 @@ const Subtitle = () =>{
         
     )
 }
-export default Subtitle
+export default Slogan

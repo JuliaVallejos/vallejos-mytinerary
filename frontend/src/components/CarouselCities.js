@@ -6,14 +6,14 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 const CarouselCities = () =>{
     const citiesAsia = [
         {title:'New Delhi', url:'new-delhi.jpg'},
-        {title:'Tokio', url:'tokio.jpg'},
+        {title:'Tokyo', url:'tokio.jpg'},
         {title:'Dubai', url:'dubai.jpg'},
         {title:'Istanbul', url:'istanbul.jpg'}
     ]
     const citiesEurope = [
         {title:'Prague', url:'prague.jpg'},
         {title:'Rome', url:'roma.jpg'},
-        {title:'Atenas', url:'atenas.jpg'},
+        {title:'Athens', url:'atenas.jpg'},
         {title:'Paris', url:'paris.jpg'}
     ]
     const citiesAmerica = [

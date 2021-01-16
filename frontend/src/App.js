@@ -3,7 +3,7 @@ import './styles/App.css';
 
 import {Route,BrowserRouter,Switch} from 'react-router-dom'
 import Header from './components/Header';
-import Section from './components/Section'
+import HomePage from './components/HomePage'
 import Cities from './components/Cities'
 import Footer from './components/Footer'
 function App() {
@@ -12,7 +12,7 @@ function App() {
       <BrowserRouter>
         <Header />
         <Switch>
-        <Route exact path='/' component={Section}/>
+        <Route exact path='/' component={HomePage}/>
         <Route path='/cities' component={Cities}/>
         </Switch>
         <Footer/>

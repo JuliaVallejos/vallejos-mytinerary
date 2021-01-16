@@ -1,15 +1,15 @@
-import Subtitle from './Subtitle'
+import Slogan from './Slogan'
 import CarouselCities from './CarouselCities'
 
 
-const Section = () =>{
+const HomePage = () =>{
     
     return(
         <section>
-             <Subtitle/>
+             <Slogan/>
             <CarouselCities/>
         </section>
     )
 }
 
-export default Section
+export default HomePage
