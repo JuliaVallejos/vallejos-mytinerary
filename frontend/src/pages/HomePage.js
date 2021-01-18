@@ -1,5 +1,5 @@
-import Slogan from './Slogan'
-import CarouselCities from './CarouselCities'
+import Slogan from '../components/Slogan'
+import CarouselCities from '../components/CarouselCities'
 
 
 const HomePage = () =>{

@@ -36,7 +36,7 @@ const CarouselCities = () =>{
            <Carousel fade={true} interval={3000}>
             {continents.map((continent,index)=>{
                return (
-                <Carousel.Item  key={index} >
+                <Carousel.Item  key={`${index}_slide`} >
                     <MapSlide cities={continent.pictures} />
                     <Carousel.Caption>
                     <h2>{continent.title}</h2>
