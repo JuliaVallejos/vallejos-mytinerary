@@ -1,10 +1,10 @@
 const express = require('express')
+const cors = require('cors')
+const router = require('./routes/index')
 
 const app = express()
-app.get('/api', (req,res)=>{
-    res.json({
-        mensaje: 'Bienvenido'
-    })
-})
+app.use(cors())
+
+app.use('/api',router)
 
 app.listen(4000,()=>console.log('App listening on port 4000'))
