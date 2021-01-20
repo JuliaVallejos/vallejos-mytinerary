@@ -4,11 +4,10 @@ const MapSlide = ({cities})=>{
 
         <div className='slides'>
                 {cities.map((city,index) =>{
-                    const photo = require(`../assets/${city.url}`)
-                    
+    
                     return(
                     <div className='photo_slide' key={`${index}_photo`} style={{
-                        backgroundImage:`url(${photo.default})`,
+                        backgroundImage:`url(../assets/${city.url})`,
                         backgroundSize:'cover',
                         backgroundPosition:'center',
                         width:'50%',
