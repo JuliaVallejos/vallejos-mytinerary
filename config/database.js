@@ -1,7 +1,7 @@
 const mongoose = require('mongoose')
 
 /* conexion a la Base de Datos */
-mongoose.connect('mongodb+srv://dbJulia:dbpassword@mytineraries.uiw6r.mongodb.net/MYtineraries?retryWrites=true&w=majority', {
+mongoose.connect(process.env.MONGODB,{
     useNewUrlParser:true,
     useCreateIndex:true,
     useUnifiedTopology:true,

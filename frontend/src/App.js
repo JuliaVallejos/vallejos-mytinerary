@@ -2,7 +2,6 @@ import './styles/media.css'
 import './styles/App.css';
 
 import {Route,BrowserRouter,Switch} from 'react-router-dom'
-import Header from './components/Header';
 import HomePage from './pages/HomePage'
 import CitiesPage from './pages/CitiesPage'
 import Footer from './components/Footer'
@@ -11,7 +10,7 @@ function App() {
   return (
     <div className="App">
       <BrowserRouter>
-        <Header />
+        {/* <Header /> */}
         <Switch>
         <Route exact path='/' component={HomePage}/>
         <Route path='/cities' component={CitiesPage}/>

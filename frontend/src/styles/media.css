@@ -67,7 +67,7 @@
     section{
         min-height: 50vh;
         width: 100%;
-        background-image:url('../assets/fondo_mapa2.jpg');
+        background-image:url('../assets/fondo_mapa3.jpg');
         background-position: -25% ;   
         background-size: 70%;
     }
@@ -185,17 +185,24 @@
    
     /* Page Cities */
   
-    .cities{
+    .cities_page{
         min-height: 74vh;
+        background-image:url('../assets/fondo_mapa3.jpg');
+        background-attachment: fixed;
         text-align: center;
         display:flex;
         flex-direction: column;
         align-items: center;
+        padding-bottom:5%;
     }
     input#search{
-        margin-bottom:1%;
+        margin:3% 0 1% 0;
+        width:40%;
+        text-align: center;
+        font-size: 1.5em;
     }
     .city{
+        
         display:flex;
         justify-content: center;
         align-items: center;
@@ -350,7 +357,7 @@
     section{
         min-height: 50vh;
         width: 100%;
-        background-image:url('../assets/fondo_mapa2.jpg');
+        background-image:url('../assets/fondo_mapa3.jpg');
         background-attachment:fixed;
         background-position: center;   
     }
@@ -361,7 +368,7 @@
        align-items: center;
      
     }
-    .slogan h3, .cities h3{
+    .slogan h3, .cities_page h3{
         background-color: rgb(136, 12, 12);
         width:100%;
         padding:1%;
@@ -465,15 +472,21 @@
     }
    
     /* Page Cities */
-    .cities{
+    .cities_page{
        min-height: 74vh;
-       text-align: center;
+       background-image:url('../assets/fondo_mapa3.jpg');
+        background-attachment: fixed;
+        text-align: center;
         display:flex;
         flex-direction: column;
         align-items: center;
+        padding-bottom:5%;
     }
     input#search{
-        margin-bottom:1%;
+        margin:3% 0 1% 0;
+       
+        text-align: center;
+        font-size: 1.2em;
     }
     .city{
         display:flex;
@@ -482,12 +495,13 @@
         background-position: center;
         width:35vw;
         height:25vh;
-        margin-bottom:2.5%
+        margin-bottom:2.5%;
+        
     }
     .city h4{
-        background-color: rgba(255, 255, 255, 0.500);
+        background-color: rgba(255, 255, 255, 0.623);
         width:100%;
-        color:black;
+        color:rgb(1, 1, 19);
     }
     .city_itineraries{
         height: 80vh;
