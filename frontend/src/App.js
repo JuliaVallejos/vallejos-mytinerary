@@ -6,6 +6,7 @@ import HomePage from './pages/HomePage'
 import CitiesPage from './pages/CitiesPage'
 import Footer from './components/Footer'
 import Itineraries from './components/Itineraries'
+
 function App() {
   return (
     <div className="App">

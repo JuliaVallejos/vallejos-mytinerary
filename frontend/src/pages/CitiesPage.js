@@ -6,13 +6,18 @@ const CitiesPage= (props) =>{
     const [cities,setCities]= useState([])
     const [newCities,setNewCities] = useState([])
     const [results,setResults] = useState(true)
+    const [load,setLoad]=useState()
+
+    
 
     useEffect(() => {
+        setLoad(true)
         fetch('http://localhost:4000/api/cities')
         .then(response =>response.json())
         .then (data => {
             setCities(data.response)
             setNewCities(data.response)
+            setLoad(false)
          
             })      
     }, [])
@@ -43,7 +48,8 @@ const CitiesPage= (props) =>{
         <div className="cities_page">
             <h3>Cities</h3>
             <input id='search' type='text' placeholder='Find your City!' onChange={filterCities} ></input>
-            <CitiesList cities={newCities} results={results}/>
+            {load && <h1 className='loading'>Loading...</h1>}
+            <CitiesList cities={newCities} results={results} setLoad={setLoad}/>
             <Link to='/'><button className="back">Back to Home</button></Link>
         </div>
         </>

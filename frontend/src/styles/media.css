@@ -31,6 +31,7 @@
         margin:2%;
     }
     header nav{
+        width:30%;
         margin:4% 2%;
         height: 20%;
         display: flex;
@@ -63,8 +64,8 @@
         height: 100%;
         margin:0;
     }
-    /* SECTION */
-    section{
+    /*HOME PAGE*/
+   .home_page{
         min-height: 50vh;
         width: 100%;
         background-image:url('../assets/fondo_mapa3.jpg');
@@ -200,17 +201,25 @@
         margin:3% 0 1% 0;
         width:40%;
         text-align: center;
-        font-size: 1.5em;
+        font-size: 0.8em;
+        margin:3% 0;
+    }
+    .loading{
+        font-size:0.7em;
+        text-align:center;
     }
     .city{
-        
         display:flex;
         justify-content: center;
         align-items: center;
         background-position: center;
-        width:60vw;
-        height:10vh;
-        margin-bottom:2.5%
+        width:70vw;
+        height:12vh;
+        margin-bottom:2.5%;
+        border-radius:5px;
+        border: 2px solid rgb(247, 225, 225);
+        box-shadow: 0 0 6px 3px rgb(0, 0, 0);
+        
     }
     .city h4{
         background-color: rgba(255, 255, 255, 0.500);
@@ -220,30 +229,53 @@
         user-select: none;
     }
     .city_itineraries{
-        height: 80vh;
+        height: 70vh;
         background-color: rgba(0, 255, 255, 0.171);
         display:flex;
         flex-direction: column;
         align-items: center;
     }
-    .city_itineraries div{
-        display: flex;
-        justify-content: space-around;
-        align-items: center;
-        margin: 2% auto;
-    }
     .city_itineraries h5{
         text-align: center;
-        background-color: rgba(245, 245, 220, 0.233);
-        width:100%;
+        font-size:1.3em;
+        background-color: rgba(245, 245, 233, 0.842);
+        width:40%;
+        border-radius:25px;
+        margin:3% 0;
+        box-shadow: 0 0 8px 4px black;
     }
-    .city_itineraries h2{
+    
+    .itineraries{
+        height:30%;
+        width:70%;
+        background-color: rgba(255, 169, 169, 0.651);
         display:flex;
-        flex-direction: column;
-        color:white;
-        background-color: brown;
-        padding:6%;
+        justify-content:center;
+        align-items: center;
+        border-radius:20px;
+        margin-bottom:4%;
+    
     }
+    .itineraries h4{
+        text-align:center;
+        font-size:0.7em;
+        padding:2%;
+        color:white;
+        background-color:rgba(132, 12, 12, 0.897);
+        width:100%;
+      
+    }
+    button.back{
+        width:25vw;
+        padding:0 2%;
+        background-image:url('../assets/button.jpg');
+        background-size:cover;
+        background-position: center;
+        font-size:0.6em;
+        color:rgb(255, 255, 255);
+        border-radius: 20px;
+        box-shadow: 0 0 3px 3px black;
+}
     /* footer */
     footer{
        
@@ -294,7 +326,7 @@
     }
     
 }
-@media(min-width:500px)and (max-width:1150px){
+@media(min-width:630px)and (max-width:1150px){
     html *{
         margin:0;
         padding:0;
@@ -328,6 +360,7 @@
     }
     header nav{
         margin:4% 2%;
+        width:20%;
         height: 20%;
         display: flex;
         justify-content: space-between;
@@ -356,7 +389,7 @@
         
     }
     /* SECTION */
-    section{
+   .home_page{
         min-height: 50vh;
         width: 100%;
         background-image:url('../assets/fondo_mapa3.jpg');
@@ -376,9 +409,9 @@
         padding:1%;
         text-align: center;
         color:white;
-        font-size:1em;
-        padding:1%;
+        text-shadow: 2px 2px 0 rgb(0, 0, 0);
         margin:0;
+        font-size:1.3em;
        
     }
 
@@ -489,16 +522,19 @@
         margin:3% 0 1% 0;
        
         text-align: center;
-        font-size: 1.2em;
+        font-size: 1em;
     }
     .city{
         display:flex;
         justify-content: center;
         align-items: center;
         background-position: center;
-        width:35vw;
-        height:25vh;
+        width:50vw;
+        height:20vh;
         margin-bottom:2.5%;
+        border-radius:5px;
+        border: 2px solid rgb(247, 225, 225);
+        box-shadow: 0 0 6px 3px rgb(0, 0, 0);
         
     }
     .city h4{
@@ -514,23 +550,47 @@
         flex-direction: column;
         align-items: center;
     }
-    .city_itineraries div{
-        display: flex;
-        justify-content: space-around;
-        align-items: center;
-        margin: 2% auto;
+  
+.city_itineraries h5{
+    text-align: center;
+    font-size:2.6em;
+    background-color: rgba(245, 245, 233, 0.842);
+    width:40%;
+    border-radius:25px;
+    margin:2% 0;
+    box-shadow: 0 0 8px 4px black;
     }
-    .city_itineraries h5{
-        text-align: center;
-        background-color: rgba(245, 245, 220, 0.233);
-        width:100%;
-    }
-    .city_itineraries h2{
-        display:flex;
-        flex-direction: column;
-        color:white;
-        background-color: brown;
-        padding:6%;
+
+.itineraries{
+    height:40vh;
+    width:70%;
+    background-color: rgba(255, 169, 169, 0.651);
+    display:flex;
+    justify-content:center;
+    align-items: center;
+    border-radius:20px;
+    margin-bottom:4%;
+
+}
+.itineraries h4{
+    text-align:center;
+    font-size:2em;
+    padding:2%;
+    color:white;
+    background-color:rgba(132, 12, 12, 0.897);
+    width:100%;
+  
+}
+    button.back{
+        width:13vw;
+        padding:0 2%;
+        background-image:url('../assets/button.jpg');
+        background-size:cover;
+        background-position: center;
+        font-size:1.1em;
+        color:rgb(255, 255, 255);
+        border-radius: 20px;
+        box-shadow: 0 0 3px 3px black;
     }
     /* footer */
     footer{

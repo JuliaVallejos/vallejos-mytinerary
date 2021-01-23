@@ -91,6 +91,7 @@ header nav img{
     color:white;
     text-shadow: 2px 2px 0 rgb(0, 0, 0);
     margin:0;
+    
    
 }
 
@@ -210,7 +211,10 @@ input#search{
     width:40%;
     text-align: center;
     font-size: 1.5em;
+    border:none;
+    border-bottom: 1px solid black;
 }
+
 .city{
     display:flex;
     justify-content: center;
@@ -243,7 +247,10 @@ input#search{
 
 .city_itineraries h5{
     text-align: center;
-    font-size:4em;
+    display:flex;
+    justify-content: center;
+    align-items: center;
+    font-size:3em;
     background-color: rgba(245, 245, 233, 0.842);
     width:40%;
     border-radius:25px;
@@ -251,14 +258,16 @@ input#search{
     box-shadow: 0 0 8px 4px black;
 }
 
+
 .itineraries{
-    height:50vh;
-    width:90%;
+    height:40vh;
+    width:70%;
     background-color: rgba(255, 169, 169, 0.651);
     display:flex;
     justify-content:center;
     align-items: center;
     border-radius:20px;
+    margin-bottom:4%;
 
 }
 .itineraries h4{
@@ -271,13 +280,16 @@ input#search{
   
 }
 button.back{
-    margin:3% 0;
-    padding: 0 1%;
-    background-image:url('../assets/avion.jpg');
+    width:13vw;
+    padding:0 2%;
+    background-image:url('../assets/button.jpg');
     background-size:cover;
     background-position: center;
-    font-size:1.3em;
-    color:rgb(0, 0, 0);
+    font-size:1.1em;
+    color:rgb(255, 255, 255);
+    border-radius: 20px;
+    box-shadow: 0 0 3px 3px black;
+  
 }
 /* FOOTER */
 

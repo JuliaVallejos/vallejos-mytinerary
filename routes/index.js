@@ -10,5 +10,4 @@ router.route('/itineraries/:id')
 .get(citiesController.itinerariesCity)
 
 
-
 module.exports = router
