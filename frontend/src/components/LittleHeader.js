@@ -7,8 +7,7 @@ const LittleHeader = ({banner}) =>{
    
     return(
         <header style={{
-            height:'35vh',
-            /* backgroundImage:'linear-gradient(#b3d1d8,rgb(255,255,255)' */
+            height:'30vh',
             backgroundImage:`url(../assets/fondo_mapa3.jpg)`,
             backgroundSize:'contain'
 

@@ -5,7 +5,7 @@ const NoResults = ({cities}) =>{
             <div className='cities_list'>
                 {cities.map(({cityPic,cityName},index) => {
                 return (
-                    <div  className='city' style={{
+                    <div  key={index} className='city' style={{
                         backgroundImage:`url(${cityPic})`,
                         backgroundSize: 'cover',                  
                     }}>

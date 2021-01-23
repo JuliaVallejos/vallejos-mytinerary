@@ -15,13 +15,13 @@ html *{
 
 /* HEADER */
 header{
-    height: 40vh;
+    height: 30vh;
     width: 100%;
     display: flex!important;
     justify-content: space-between;
     background-image: url(../assets/banner.jpg);
     background-size: cover;
-    background-position:100% 58%;
+    background-position:100% 64%;
 }
 
 header nav{
@@ -61,14 +61,14 @@ header nav img{
 }
 .logo{
     width:45vw;
-    height:60%;
+    height:100%;
     background-image:url("../assets/logo.png");
     background-size:45%;
     background-repeat:no-repeat;
     margin: 1% 6%;
 }
-/* SECTION */
-section{
+/* HOME PAGE*/
+.home_page{
     min-height: 150vh;
     width: 100%;
     background-image:url('../assets/fondo_mapa3.jpg');
@@ -83,12 +83,14 @@ section{
    align-items: center;
  
 }
-.slogan h3, .cities_page h3{
+.slogan h3, .cities_page h3, .itineraries_page h3{
     background-color: rgb(136, 12, 12);
     width:100%;
     padding:1%;
     text-align: center;
-    color:white
+    color:white;
+    text-shadow: 2px 2px 0 rgb(0, 0, 0);
+    margin:0;
    
 }
 
@@ -192,7 +194,7 @@ div.photo_slide:hover{
     
     
 }
-/* Page Cities */
+/* PAGE CITIES */
 .cities_page{
     min-height: 100vh;
     background-image:url('../assets/fondo_mapa3.jpg');
@@ -229,35 +231,53 @@ input#search{
     background-color: rgba(255, 255, 255, 0.500);
     width:100%;
     color:black;
+    user-select: none;
 }
 .city_itineraries{
-    min-height: 80vh;
-    padding-bottom:5%;
-    background-color: rgba(0, 255, 255, 0.171);
+    min-height: 90vh;
+    padding:5%;
     display:flex;
     flex-direction: column;
     align-items: center;
-}
-.city_itineraries div{
-    display: flex;
-    justify-content: space-around;
-    align-items: center;
-    margin: 2% auto;
-    
 }
 
 .city_itineraries h5{
     text-align: center;
     font-size:4em;
     background-color: rgba(245, 245, 233, 0.842);
-    width:100%;
+    width:40%;
+    border-radius:25px;
+    margin-bottom:2%;
+    box-shadow: 0 0 8px 4px black;
 }
-.city_itineraries h2{
+
+.itineraries{
+    height:50vh;
+    width:90%;
+    background-color: rgba(255, 169, 169, 0.651);
     display:flex;
-    flex-direction: column;
+    justify-content:center;
+    align-items: center;
+    border-radius:20px;
+
+}
+.itineraries h4{
+    text-align:center;
+    font-size:2em;
+    padding:2%;
     color:white;
-    background-color: brown;
-    padding:6%;
+    background-color:rgba(132, 12, 12, 0.897);
+    width:100%;
+  
+}
+button.back{
+    margin:3% 0;
+    padding: 0 1%;
+    background-image:url('../assets/avion.jpg');
+    background-size:cover;
+    background-position: center;
+    font-size:1.3em;
+    color:rgb(0, 0, 0);
 }
 /* FOOTER */
 

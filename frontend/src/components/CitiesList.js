@@ -2,11 +2,10 @@
 import {Link} from 'react-router-dom'
 import NoResults from './NoResults'
 
-
-const CitiesList = ({cities}) =>{
-    console.log(cities)
-    if (cities[0]._id) {
-         return(
+const CitiesList = ({cities,results}) =>{
+  
+   return(
+             <> {results ? 
             <div className='cities_list'>
                 { cities.map(({cityPic,cityName,_id},index) => {
                 return (
@@ -19,13 +18,14 @@ const CitiesList = ({cities}) =>{
                         <h4>{`${cityName}`}</h4>
                     </div>
                      </Link>
+                     
                 ) })} 
-            </div>)
-    }else{
-        return (
-                <NoResults cities={cities}/>
-                    )
-        }
+            </div> : <NoResults cities={cities}/> 
+            }
+           
+            </>
+            )
+  
        
 }
 

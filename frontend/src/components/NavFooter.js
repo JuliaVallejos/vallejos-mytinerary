@@ -8,10 +8,7 @@ const NavFooter = () =>{
             </Link>
             <Link to='/cities'>
             <p>Cities</p>
-            </Link>
-            <Link to='/'>
-            <p>Other</p>
-            </Link>     
+            </Link>    
         </nav>
     )
 }

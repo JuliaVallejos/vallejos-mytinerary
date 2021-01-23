@@ -78,7 +78,7 @@
        align-items: center;
      
     }
-    .slogan h3, .cities h3{
+    .slogan h3, .cities_page h3, .itineraries_page h3{
         background-color: rgb(136, 12, 12);
         width:100%;
         padding:1%;
@@ -86,6 +86,7 @@
         color:white;
         font-size:1em;
         padding:1%;
+        margin:0;
        
     }
 
@@ -216,6 +217,7 @@
         width:100%;
         font-size: 0.6em;
         color:black;
+        user-select: none;
     }
     .city_itineraries{
         height: 80vh;
@@ -368,7 +370,7 @@
        align-items: center;
      
     }
-    .slogan h3, .cities_page h3{
+    .slogan h3, .cities_page h3, .itineraries_page h3{
         background-color: rgb(136, 12, 12);
         width:100%;
         padding:1%;
@@ -376,6 +378,7 @@
         color:white;
         font-size:1em;
         padding:1%;
+        margin:0;
        
     }
 
@@ -502,6 +505,7 @@
         background-color: rgba(255, 255, 255, 0.623);
         width:100%;
         color:rgb(1, 1, 19);
+        user-select: none;
     }
     .city_itineraries{
         height: 80vh;

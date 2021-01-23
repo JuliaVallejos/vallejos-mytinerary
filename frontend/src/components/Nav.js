@@ -12,9 +12,6 @@ const Nav = () =>{
             <Link to='/cities'>
             <p>CITIES</p>
             </Link>
-            <Link to='/'>
-            <p>OTHER</p>
-            </Link>
             
         </nav>
     )

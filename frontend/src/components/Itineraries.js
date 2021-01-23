@@ -18,34 +18,34 @@ const Itineraries = (props) =>{
             }
         })
 
-    },[id])
+    },[id,props.history])
+    useEffect(() => {
+        window.scrollTo(0, 0)
+       }, [])
+      
 
  
     return(
+       
         <div className='itineraries_page'>
-            <LittleHeader banner={city.cityPic}/>
+            <LittleHeader/>
+            <h3>Itineraries</h3>
             <div className='city_itineraries' style={{
                     backgroundImage:`url(${city.cityPic})`,
                     backgroundSize:'cover',
                     backgroundPosition:'center'}}>
-                <div style={{
-                    /* backgroundImage:`url(${city.cityPic})`,
-                    backgroundSize:'cover',
-                    backgroundPosition:'center', */
-                    width:'40vw',
-                    height:'20vh',
-                }}>
+              
                 <h5>{city.cityName}</h5>
+                <div className='itineraries'>
+                    <h4>No itineraries yet. Make one!</h4>
                 </div>
-                <h2>No itineraries yet
-                    
-                </h2>
                 <Link to='/cities'>
-                <button>Back to cities</button>
+                <button className="back">Back to cities</button>
                 </Link>
 
             </div>
         </div>
+       
     )
 
 }
