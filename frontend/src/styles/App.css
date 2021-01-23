@@ -94,11 +94,19 @@ header nav img{
     
    
 }
-
+.next_page a:hover{
+    transform:scale(1.1);
+    text-decoration:none;
+    display: flex;
+    transition-duration: 600ms;
+    transition-delay: 100ms;
+    
+ }
 .next_page{
     width:25%;
     height: 20vh;
     margin-top:3%;
+    transition: scale 600ms;
     
 }
 .next_page img{
@@ -108,14 +116,7 @@ header nav img{
     
 }
 
-.next_page a:hover{
-   transform:scale(1.1);
-   text-decoration:none;
-   display: flex;
-   transition-duration: 600ms;
-   transition-delay: 100ms;
-   
-}
+
 .PopularMYtineraries{
     padding-top:3%;
     margin:auto;

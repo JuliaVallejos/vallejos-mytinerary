@@ -6,9 +6,7 @@ const NextPage = () => {
             <div className="next_page">
                 
                 <Link to='/cities'>
-            
-                <img src="./assets/departures2.jpg" alt="cities"/>
-                
+                <img src="../assets/departures2.jpg" alt="cities"/>
                 </Link>
             </div>
         )
