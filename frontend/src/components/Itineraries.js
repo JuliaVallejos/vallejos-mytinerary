@@ -1,6 +1,7 @@
 import React, {useEffect,useState} from 'react'
 import {Link} from 'react-router-dom'
 import LittleHeader from './LittleHeader'
+import ItinerariesList from './ItinerariesList'
 
 /* componente de la página Itineraries */
 
@@ -12,7 +13,7 @@ const Itineraries = (props) =>{
 
     useEffect(() => {
         setLoad(true)
-        fetch(`http://localhost:4000/api/itineraries/${id}`)
+        fetch(`http://localhost:4000/api/cities/${id}`)
         .then(response => response.json())
         .then (data => {
             if(data.success){
@@ -41,8 +42,10 @@ const Itineraries = (props) =>{
                     backgroundPosition:'center'}}>
               
               <h5>{load ? 'Loading...' : city.cityName}</h5>
+              
                 <div className='itineraries'>
-                    <h4>No itineraries yet. Make one!</h4>
+                    <ItinerariesList idCity={id}/>
+                    {/* <h4>No itineraries yet. Make one!</h4> */}
                 </div>
                 <Link to='/cities'>
                 <button className="back">Back to Cities</button>

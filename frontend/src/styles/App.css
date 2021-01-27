@@ -238,6 +238,7 @@ input#search{
     color:black;
     user-select: none;
 }
+/* ITINERARIES */
 .city_itineraries{
     min-height: 90vh;
     padding:5%;
@@ -246,7 +247,7 @@ input#search{
     align-items: center;
 }
 
-.city_itineraries h5{
+.city_itineraries>h5{
     text-align: center;
     display:flex;
     justify-content: center;
@@ -258,10 +259,49 @@ input#search{
     margin-bottom:2%;
     box-shadow: 0 0 8px 4px black;
 }
-
-
+.itineraries_list{
+    width:100%;
+    display:flex;
+    flex-direction: column;
+   
+    margin:2%;
+}
+.single_itinerary{
+    margin:5%;
+    color:white;
+    background-color:rgb(132, 12, 12);
+    border-radius:5px;
+    padding:2%;
+}
+.single_itinerary h5{
+    font-size:1.6em;
+    text-align:center;
+}
+.center_itinerary{
+    display:flex;
+    justify-content:space-between
+}
+.single_itinerary .info{
+    display: flex;
+    flex-direction:column;
+    flex:1;
+    justify-content: space-around;
+   
+}
+.info_data{
+    display:flex;
+    justify-content:space-around
+}
+.user{
+    display: flex;
+    border-radius:100%;
+}
+.center_itinerary h6{
+    font-size:0.7em;
+    text-align:center;
+}
 .itineraries{
-    height:40vh;
+    min-height:40vh;
     width:70%;
     background-color: rgba(255, 169, 169, 0.651);
     display:flex;
