@@ -47,10 +47,14 @@ const Itineraries = (props) =>{
                     <ItinerariesList idCity={id}/>
                     {/* <h4>No itineraries yet. Make one!</h4> */}
                 </div>
-                <Link to='/cities'>
-                <button className="back">Back to Cities</button>
-                </Link>
-
+                <div className='buttons'>
+                    <Link to='/cities'>
+                    <button className="back">Back to Cities</button>
+                    </Link>
+                    <Link to='/'>
+                    <button className="back">Back to Home</button>
+                    </Link>
+                </div>
             </div>
         </div>
        

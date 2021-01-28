@@ -1,13 +1,15 @@
 
 import {useState,useEffect} from 'react'
+import Activities from './Activities'
 
 const ItinerariesList = (props) =>{
-    
-    const id = props.idCity
+    const idCity = props.idCity
     const [itinerariesList,setItinerariesList] = useState([])
+    const [moreInfo,setMoreInfo] = useState(true)
+
 
     useEffect(() => {
-       fetch(`http://localhost:4000/api/itineraries/all/${id}`)
+       fetch(`http://localhost:4000/api/${idCity}/itineraries`)
        .then(response => response.json())
        .then( data =>{
        if(data.success){
@@ -16,18 +18,18 @@ const ItinerariesList = (props) =>{
            console.log("error")
        }})
        
-    }, [id])
+    }, [idCity])
    return(
             <div className='itineraries_list'>
-                { itinerariesList.map(({title,userName,userPic,likes,duration,price,hashtags},index) => {
+                { itinerariesList.map(({title,userName,userPic,likes,duration,price,hashtags,activities,comments},index) => {
                 return (
                     <div key={`${index}it`} className='single_itinerary'>
                         <h5>{title}</h5>
                         <div className="center_itinerary">
                             <div>
                                 <div  className='user' style={{
-                                    width:'5vw',
-                                    height:'10vh',
+                                    width:'6vw',
+                                    height:'12vh',
                                     backgroundImage:`url(${userPic})`,
                                     backgroundSize: 'cover',
                                 }}> </div>
@@ -35,18 +37,19 @@ const ItinerariesList = (props) =>{
                             </div>
                             <div className="info">
                                 <div className="info_data">
-                                <p>{likes}<i class="far fa-heart"></i></p>
-                                <p>{`${duration} hs`}</p>
+                                <p>{`${likes} `}<i className="far fa-heart"></i></p>
+                                <p>{`Duration: ${duration} hs`}</p>
                                 {'$'.repeat(price)}
                                 </div>
                                 <div className='info_data'>
-                                {hashtags.map(hashtag => {return (
-                                    <p>{`#${hashtag}`}</p>
+                                {hashtags.map((hashtag,index) => {return (
+                                    <p key={`${index}p`}>{`#${hashtag}`}</p>
                                 )})}
                                 </div>
                             </div>
                         </div>
-                        <button>View More</button>
+                        <button onClick={()=> setMoreInfo(!moreInfo)}>{moreInfo ? 'View More' : 'View Less'}</button>
+                        {!moreInfo && <Activities activities={activities} comments={comments}/>}
                     </div>
                      
                 ) })}

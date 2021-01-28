@@ -273,9 +273,15 @@ input#search{
     border-radius:5px;
     padding:2%;
 }
-.single_itinerary h5{
+.single_itinerary>h5{
     font-size:1.6em;
     text-align:center;
+    background-color:rgba(238, 141, 141, 0.705);
+    padding:1%;
+    width:100%;
+    color:rgb(3, 3, 19);
+    margin-bottom:2%;
+
 }
 .center_itinerary{
     display:flex;
@@ -288,9 +294,14 @@ input#search{
     justify-content: space-around;
    
 }
+.single_itinerary button{
+    padding:0 1%;
+    font-size:0.8em;
+    background-color:rgba(235, 172, 172, 0.836);
+}
 .info_data{
     display:flex;
-    justify-content:space-around
+    justify-content:space-evenly
 }
 .user{
     display: flex;
@@ -298,11 +309,11 @@ input#search{
 }
 .center_itinerary h6{
     font-size:0.7em;
-    text-align:center;
+   text-align:center;
 }
 .itineraries{
     min-height:40vh;
-    width:70%;
+    width:85%;
     background-color: rgba(255, 169, 169, 0.651);
     display:flex;
     justify-content:center;
@@ -318,7 +329,66 @@ input#search{
     color:white;
     background-color:rgba(132, 12, 12, 0.897);
     width:100%;
-  
+
+}
+.more_info h5{
+    text-align:center;
+    
+}
+.activities_list{
+    display:flex;
+    justify-content: space-evenly;
+    height:20vw;
+}
+.activity{
+    display:flex;
+    align-items:flex-end;
+    width:30%;
+    height:90%;
+    background-position: center;
+}
+.activity h6{
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    padding:1% 2%;
+    color:black;
+    background-color:rgb(197, 243, 243);
+    width:100%;
+    text-align:center;
+    height:2.8em;
+}
+.single_comment{
+    background-color:rgb(197, 243, 243);
+    padding:1%;
+    margin:2%;
+    border-radius:5px;
+    color:black;
+    font-size:0.8em;
+}
+.user_comment{
+    display: flex;
+    align-items:center;
+    padding-bottom: 1%;
+}
+.user_comment img{
+    margin:0 1% 0 0;
+    background-color:rgb(255, 255, 255);
+    border-radius:100%;
+    background-size:contain;
+    background-repeat:no-repeat;
+    background-position:center;
+    height:4vh;
+    
+}
+.user_comment p{
+    margin:0;
+    padding:0;
+}
+.buttons{
+    display:flex;
+    justify-content: space-between;
+    width:40%;
 }
 button.back{
     width:13vw;

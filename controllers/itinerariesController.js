@@ -3,8 +3,7 @@ const Itinerary = require('../models/Itinerary')
 const itinerariesController={
     /* agrega itinerario  */
     addItinerary:(req,res) =>{
-        const {title,userName,userPic,duration,price,likes,hashtags,activities,comments} = req.body
-        const idCity = req.params.idCity
+        const {title,idCity,userName,userPic,duration,price,likes,hashtags,activities,comments} = req.body
         const newItinerary = new Itinerary({title,idCity,userName,userPic,duration,price,likes,hashtags,activities,comments})
         newItinerary.save()
         .then(newItinerary => res.json({success:true, response: newItinerary}))
@@ -19,7 +18,6 @@ const itinerariesController={
     },
     allItineraries: (req,res) =>{
         const id= req.params.idCity
-        console.log(id)
         Itinerary.find({idCity:id})
         .then(response => res.json({success:true,response}))
         .catch(error=> res.json({success:true, error}))

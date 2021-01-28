@@ -10,7 +10,7 @@ router.route('/cities')
 router.route('/cities/:id')
 .get(citiesController.itinerariesCity)
 
-router.route('/itineraries/all/:idCity')
+router.route('/:idCity/itineraries')
 .get(itinerariesController.allItineraries)
 .post(itinerariesController.addItinerary)
 
