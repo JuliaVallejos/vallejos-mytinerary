@@ -1,27 +1,13 @@
 
-import {useState,useEffect} from 'react'
-import Activities from './Activities'
+import MoreInfo from './MoreInfo'
+
 
 const ItinerariesList = (props) =>{
-    const idCity = props.idCity
-    const [itinerariesList,setItinerariesList] = useState([])
-    const [moreInfo,setMoreInfo] = useState(true)
-
-
-    useEffect(() => {
-       fetch(`http://localhost:4000/api/${idCity}/itineraries`)
-       .then(response => response.json())
-       .then( data =>{
-       if(data.success){
-           setItinerariesList(data.response)
-       }else{
-           console.log("error")
-       }})
-       
-    }, [idCity])
+ 
    return(
+       
             <div className='itineraries_list'>
-                { itinerariesList.map(({title,userName,userPic,likes,duration,price,hashtags,activities,comments},index) => {
+                { props.itinerariesList.map(({_id,title,userName,userPic,likes,duration,price,hashtags,activities,comments},index) => {
                 return (
                     <div key={`${index}it`} className='single_itinerary'>
                         <h5>{title}</h5>
@@ -48,16 +34,15 @@ const ItinerariesList = (props) =>{
                                 </div>
                             </div>
                         </div>
-                        <button onClick={()=> setMoreInfo(!moreInfo)}>{moreInfo ? 'View More' : 'View Less'}</button>
-                        {!moreInfo && <Activities activities={activities} comments={comments}/>}
+                        <MoreInfo activities={activities} comments={comments}/>
                     </div>
                      
                 ) })}
             
           </div>
-            )
-  
-       
+        
+            )  
 }
+
 
 export default ItinerariesList

@@ -1,31 +1,21 @@
-import React, {useEffect,useState} from 'react'
+import React, {useEffect} from 'react'
 import {Link} from 'react-router-dom'
 import LittleHeader from './LittleHeader'
 import ItinerariesList from './ItinerariesList'
-
+import {connect} from 'react-redux'
+import citiesActions from '../redux/actions/citiesActions'
+import itinerariesActions from '../redux/actions/itinerariesActions'
 /* componente de la página Itineraries */
 
 const Itineraries = (props) =>{
     const id = props.match.params.id 
-    
-    const [city,setCity]= useState({})
-    const [load,setLoad]=useState()
+   const {getCityById,itinerariesByCity,city,itinerariesList} = props
 
     useEffect(() => {
-        setLoad(true)
-        fetch(`http://localhost:4000/api/cities/${id}`)
-        .then(response => response.json())
-        .then (data => {
-            if(data.success){
-                setCity(data.response)
-                setLoad(false)
-        }else{
-        /* si el fetcheo falla redirecciona a Cities */
-            props.history.push('/cities')
-            }
-        })
+        getCityById(id)
+        itinerariesByCity(id)
 
-    },[id,props.history])
+    },[id,getCityById,itinerariesByCity])
     useEffect(() => {
         window.scrollTo(0, 0)
        }, [])
@@ -41,11 +31,13 @@ const Itineraries = (props) =>{
                     backgroundSize:'cover',
                     backgroundPosition:'center'}}>
               
-              <h5>{load ? 'Loading...' : city.cityName}</h5>
+              <h5>{props.city.cityName}</h5>
               
                 <div className='itineraries'>
-                    <ItinerariesList idCity={id}/>
-                    {/* <h4>No itineraries yet. Make one!</h4> */}
+                    {console.log(itinerariesList)}
+                    {itinerariesList===[]&& <h4>No itineraries yet. Make one!</h4>}
+                    <ItinerariesList itinerariesList={itinerariesList}/>
+
                 </div>
                 <div className='buttons'>
                     <Link to='/cities'>
@@ -58,8 +50,18 @@ const Itineraries = (props) =>{
             </div>
         </div>
        
-    )
+)}
+const mapStateToProps = state =>{
+    return {
+        city: state.city.singleCity,
+        itinerariesList: state.itinerary.itineraries
 
+    }
 }
+const mapDispatchToProps = {
+        getCityById: citiesActions.getCityById,
+        itinerariesByCity : itinerariesActions.itinerariesByCity
+        
+    }
 
-export default Itineraries
+export default connect(mapStateToProps,mapDispatchToProps)(Itineraries)

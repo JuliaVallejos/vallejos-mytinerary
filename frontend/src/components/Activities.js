@@ -1,3 +1,4 @@
+import Comment from './Comments'
 
 const Activities = (props) =>{
     const {activities,comments} = props
@@ -9,7 +10,7 @@ const Activities = (props) =>{
             
             {activities.map(activity =>{
                 return(
-                    <div className='activity' style={{
+                    <div key={activity._id} className='activity' style={{
                         backgroundImage:`url(${activity.activityPic})`,
                         backgroundSize: 'cover',
                     }}>
@@ -20,21 +21,7 @@ const Activities = (props) =>{
            
         </div>
         <h5>Comments</h5>
-        <div className='comments'>
-            {comments.map(({userName,userPic,comment},index) => {
-                return(
-                    <div key={index} className='single_comment'>
-                        <div className='user_comment'>
-                            <img src={userPic} alt='user_pic'/>
-                            
-                            <p>{`${userName} said:`}</p>
-                        </div>
-                   
-                    <p>{comment}</p>
-                    </div>
-                )
-            })}
-        </div>
+        <Comment comments={comments}/>
        </div>
     )
 

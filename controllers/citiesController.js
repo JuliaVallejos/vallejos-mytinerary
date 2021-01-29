@@ -9,7 +9,7 @@ const citiesController = {
         .then(addedCity => {
             return res.json({success: true, response: addedCity})})
         .catch(error =>{
-            return res.json ({success: false, error})
+            return res.json({success: false, error})
         })
     },
     /* muestra todas las ciudades */
