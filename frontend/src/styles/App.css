@@ -15,13 +15,13 @@ html *{
 
 /* HEADER */
 header{
-    height: 30vh;
+    height: 25vh;
     width: 100%;
     display: flex!important;
     justify-content: space-between;
-    background-image: url(../assets/banner.jpg);
-    background-size: cover;
-    background-position:100% 64%;
+    background-image: url('../assets/fondo_mapa3.jpg');
+    background-size: contain;
+    
 }
 
 header nav{
@@ -41,10 +41,9 @@ header nav a{
     color:rgb(255, 255, 255);
     display:flex;
     align-items: center;
- 
 }
 header nav a:hover{
-    background-color: rgba(122, 122, 122, 0.658);
+    background-color: rgba(159, 166, 209, 0.658);
     color:rgb(132,12,12);
     transition: color 0.2s, background-color 0.5s;
 
@@ -71,9 +70,8 @@ header nav img{
 .home_page{
     min-height: 150vh;
     width: 100%;
-    background-image:url('../assets/fondo_mapa3.jpg');
+    background-image:url('../assets/fondo_mapa1.jpg') ;
     background-attachment:fixed;
-   
     padding-bottom:5%;
 }
 
@@ -86,7 +84,7 @@ header nav img{
 .slogan h3, .cities_page h3, .itineraries_page h3{
     background-color: rgb(136, 12, 12);
     width:100%;
-    padding:1%;
+    padding:0.5% 1%;
     text-align: center;
     color:white;
     text-shadow: 2px 2px 0 rgb(0, 0, 0);
@@ -199,7 +197,7 @@ div.photo_slide:hover{
 /* PAGE CITIES */
 .cities_page{
     min-height: 100vh;
-    background-image:url('../assets/fondo_mapa3.jpg');
+    background-image:url('../assets/fondo_mapa1.jpg');
     background-attachment: fixed;
     text-align: center;
     display:flex;
@@ -272,23 +270,22 @@ input#search{
     width:100%;
     display:flex;
     flex-direction: column;
-   
     margin:2%;
 }
 .single_itinerary{
-    margin:5%;
-    color:white;
-    background-color:rgb(132, 12, 12);
+    margin:3%;
+    background-color:rgb(238, 226, 226);
+    color:black;
     border-radius:5px;
     padding:2%;
 }
 .single_itinerary>h5{
     font-size:1.6em;
     text-align:center;
-    background-color:rgba(238, 141, 141, 0.705);
+    background-color:rgba(132,12,12);
     padding:1%;
     width:100%;
-    color:rgb(3, 3, 19);
+    color:rgb(255, 255, 255);
     margin-bottom:2%;
 
 }
@@ -303,11 +300,7 @@ input#search{
     justify-content: space-around;
    
 }
-.single_itinerary button{
-    padding:0 1%;
-    font-size:0.8em;
-    background-color:rgba(235, 172, 172, 0.836);
-}
+
 .info_data{
     display:flex;
     justify-content:space-around
@@ -326,13 +319,11 @@ input#search{
     min-height:40vh;
     margin:2% auto;
     width:85%;
-    background-color: rgba(255, 169, 169, 0.651);
+    background-color: rgba(255, 169, 169, 0.555);
     display:flex;
     justify-content:center;
     align-items: center;
     border-radius:20px;
-    
-
 }
 .itineraries h4{
     text-align:center;
@@ -344,12 +335,18 @@ input#search{
 
 }
 .btn_info{
-    align-self:center;
+    width:100%;
+    text-align:center;
+    padding:0 1%;
+    border:none;
+    font-size:0.8em;
+    background-color:rgba(134, 29, 52, 0.384);
+    
 }
 .more_info h5{
-    text-align:center;
-    background-color:rgb(6, 75, 121);
-    margin-top:1%;
+    padding-left:2%;
+    color:rgb(3, 3, 22);
+    margin-top:2%;
     
 }
 .activities_list{
@@ -370,13 +367,13 @@ input#search{
     align-items:center;
     padding:1% 2%;
     color:black;
-    background-color:rgb(223, 243, 243);
+    background-color:rgb(174, 175, 221);
     width:100%;
     text-align:center;
     height:2.8em;
 }
 .single_comment{
-    background-color:rgb(223, 243, 243);
+    background-color:rgb(174, 175, 221);
     padding:1%;
     margin:2%;
     border-radius:5px;
@@ -438,7 +435,7 @@ footer{
 }
     
 
-}
+
 .top_footer{
     display:flex;
     background-image: url('../assets/footer-image.jpg');
@@ -486,3 +483,4 @@ footer nav p{
     background-color: transparent;
 }
 
+}

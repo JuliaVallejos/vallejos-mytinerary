@@ -27,18 +27,18 @@ const Itineraries = (props) =>{
     return(
        
         <div className='itineraries_page'>
-            <LittleHeader/>
+            <LittleHeader />
             <h3>Itineraries</h3>
             {(city!== undefined && itinerariesList!==undefined)?
             <div className='city_itineraries' style={{
                     backgroundImage:`url(${city.cityPic})`,
                     backgroundSize:'cover',
+                    backgroundAttachment:'fixed',
                     backgroundPosition:'center'}}>
               
               <h5>{props.city.cityName}</h5>
               
                 <div className='itineraries'>
-                {console.log(loading)}
                 {loading===true ? <h4 className='loading'>Loading...</h4> :
                     itinerariesList.length===0 ? <h4>No itineraries yet. Make one!</h4> : <ItinerariesList itinerariesList={itinerariesList}/>}
                 </div>
