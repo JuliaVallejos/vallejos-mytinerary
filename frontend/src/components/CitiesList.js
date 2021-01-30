@@ -1,13 +1,13 @@
 
 import {Link} from 'react-router-dom'
 
-
 const CitiesList = ({cities}) =>{
   
    return(
              
             <div className='cities_list'>
-                { cities.map(({cityPic,cityName,_id},index) => {
+                
+                {cities.map(({cityPic,cityName,_id},index) => {
                 return (
                  <Link key={`${index}city`} to={`/itineraries/${_id}`}>
                     <div  className='city' style={{
@@ -18,7 +18,7 @@ const CitiesList = ({cities}) =>{
                     </div>
                 </Link>
                      
-                ) })} 
+                ) })}
             </div> 
 )     
 }

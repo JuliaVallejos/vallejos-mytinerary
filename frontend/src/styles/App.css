@@ -215,7 +215,16 @@ input#search{
     border:none;
     border-bottom: 1px solid black;
 }
-
+.loading{
+    margin: 1% auto;
+    animation-name: parpadeo ;
+    animation-duration: 0.9s;
+    animation-iteration-count: infinite;
+}
+@keyframes parpadeo {
+    from{color:rgb(255, 255, 255);}
+    to{color:black}
+}
 .city{
     display:flex;
     justify-content: center;
@@ -301,9 +310,11 @@ input#search{
 }
 .info_data{
     display:flex;
-    justify-content:space-evenly
+    justify-content:space-around
 }
-.user{
+.user_img{
+    width:6vw;
+     height:12vh;
     display: flex;
     border-radius:100%;
 }
@@ -313,13 +324,14 @@ input#search{
 }
 .itineraries{
     min-height:40vh;
+    margin:2% auto;
     width:85%;
     background-color: rgba(255, 169, 169, 0.651);
     display:flex;
     justify-content:center;
     align-items: center;
     border-radius:20px;
-    margin-bottom:4%;
+    
 
 }
 .itineraries h4{
@@ -331,8 +343,13 @@ input#search{
     width:100%;
 
 }
+.btn_info{
+    align-self:center;
+}
 .more_info h5{
     text-align:center;
+    background-color:rgb(6, 75, 121);
+    margin-top:1%;
     
 }
 .activities_list{
@@ -353,13 +370,13 @@ input#search{
     align-items:center;
     padding:1% 2%;
     color:black;
-    background-color:rgb(197, 243, 243);
+    background-color:rgb(223, 243, 243);
     width:100%;
     text-align:center;
     height:2.8em;
 }
 .single_comment{
-    background-color:rgb(197, 243, 243);
+    background-color:rgb(223, 243, 243);
     padding:1%;
     margin:2%;
     border-radius:5px;
@@ -402,6 +419,11 @@ button.back{
     box-shadow: 0 0 3px 3px black;
   
 }
+.error{
+    text-align:center;
+    width:100%;
+    
+}
 /* FOOTER */
 
 footer{
@@ -412,6 +434,8 @@ footer{
     flex-direction: column;
     justify-content: space-between;
     align-items:center;
+    border-top: 2px solid  rgb(132,12,12);
+}
     
 
 }
@@ -421,20 +445,18 @@ footer{
     background-size: contain;
     background-repeat: no-repeat;
     background-position:50% 50% ;
-    justify-content: space-around;
+    justify-content: space-between;
     align-items: center;
     height: 80%;
     width:100%;
-    border-top: 3px solid  rgb(132,12,12);
 }
 .logo_footer{
 
         background-image:url('../assets/logo.png');
         width:10vw;
-        margin-top:3%;
         background-size:contain;
         background-repeat:no-repeat;
-        height:100%;
+        height:90%;
   
 }
 footer p{
@@ -447,11 +469,10 @@ footer p{
 }
 
 footer nav {
- width:10%;
+ width:40%;
  height: 60%;
  display: flex;
  flex-direction: column;
- 
  align-items: center;
 
 }
@@ -465,4 +486,3 @@ footer nav p{
     background-color: transparent;
 }
 
-}

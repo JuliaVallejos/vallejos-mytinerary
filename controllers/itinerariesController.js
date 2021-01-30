@@ -12,13 +12,13 @@ const itinerariesController={
     deleteItinerary: (req,res) =>{
         const id= req.params.idItinerary
         Itinerary.findOneAndRemove({_id:id})
-        .then(response => res.json({success: true, message: "Itinerary removed"}))
+        .then(message => res.json({success: true, message: "Itinerary removed"}))
         .catch(error => res.json({success:false,error}))
 
     },
     allItineraries: (req,res) =>{
         const id= req.params.idCity
-        Itinerary.find({idCity:id})
+        Itinerary.find({idCity:id}).populate('idCity')
         .then(response => res.json({success:true,response}))
         .catch(error=> res.json({success:true, error}))
     }

@@ -7,15 +7,15 @@ const ItinerariesList = (props) =>{
    return(
        
             <div className='itineraries_list'>
-                { props.itinerariesList.map(({_id,title,userName,userPic,likes,duration,price,hashtags,activities,comments},index) => {
+                { props.itinerariesList.map(({_id,title,userName,userPic,likes,duration,price,hashtags,activities,comments}) => {
                 return (
-                    <div key={`${index}it`} className='single_itinerary'>
+                    
+                    <div key={_id} className='single_itinerary'>
+                        
                         <h5>{title}</h5>
                         <div className="center_itinerary">
-                            <div>
-                                <div  className='user' style={{
-                                    width:'6vw',
-                                    height:'12vh',
+                            <div className='user'>
+                                <div  className='user_img' style={{
                                     backgroundImage:`url(${userPic})`,
                                     backgroundSize: 'cover',
                                 }}> </div>
@@ -23,14 +23,15 @@ const ItinerariesList = (props) =>{
                             </div>
                             <div className="info">
                                 <div className="info_data">
-                                <p>{`${likes} `}<i className="far fa-heart"></i></p>
-                                <p>{`Duration: ${duration} hs`}</p>
-                                {'$'.repeat(price)}
+                                    <p>{`${likes} `}<i className="far fa-heart"></i></p>
+                                    <p>{`Duration: ${duration} hs`}</p>
+                                    {'$'.repeat(price)}
                                 </div>
                                 <div className='info_data'>
-                                {hashtags.map((hashtag,index) => {return (
-                                    <p key={`${index}p`}>{`#${hashtag}`}</p>
-                                )})}
+                                    {hashtags.map((hashtag,index) => 
+                                    {return (
+                                        <p key={`${index}p`}>{`#${hashtag}`}</p>
+                                    )})}
                                 </div>
                             </div>
                         </div>

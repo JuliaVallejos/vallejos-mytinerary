@@ -4,25 +4,35 @@ import CitiesList from '../components/CitiesList'
 import Header from '../components/Header'
 import {connect} from 'react-redux'
 import citiesActions from '../redux/actions/citiesActions'
+import NoResults from '../components/NoResults'
 
 
 const CitiesPage= (props) =>{
-    /* const city_search= document.getElementById('search').value
-  */
- const {getCities,filterCities,cities} = props
+
+ const city_search= document.querySelector('#search')
+/*  const [loading,setLoading] = useState(true) */
+ const {getCities,filterCities,newCities,loading,setLoading} = props
+
     useEffect(() => {
+        setLoading(true)
         getCities() 
+    },[setLoading,getCities]) 
+
+    useEffect(() => {
         window.scrollTo(0, 0)
-    },[getCities]) 
-   
+       }, [])
+       
       return(
          <>
+         
          <Header/>
         <div className="cities_page">
             <h3>Cities</h3>
-            <input id='search' type='text' placeholder='Find your City!' onChange={()=> filterCities(this.value)} ></input>
-            {/* {load && <h1 className='loading'>Loading...</h1>} */}
-            <CitiesList cities={cities} /* results={results} setLoad={setLoad} *//>
+            <input id='search' type='text' placeholder='Find your City!' onChange={()=> filterCities(city_search.value)} ></input>
+            {(loading && newCities.length===0)&&<h2 className='loading'>...Loading...</h2>}
+            
+            <CitiesList cities={newCities} />
+            {(newCities.length===0 && loading===false)&& <NoResults/>}
             <Link to='/'><button className="back">Back to Home</button></Link>
         </div>
         </>
@@ -30,14 +40,16 @@ const CitiesPage= (props) =>{
 
  const mapStateToProps = state =>{
      return{
-         cities: state.city.cities,
-         newCities : state.city.filteredCities
+       
+         newCities : state.city.filteredCities,
+         loading:state.city.loading
      }
 
  }
  const mapDispatchToProps ={
      getCities: citiesActions.getCities,
-     filterCities: citiesActions.filterCities
+     filterCities: citiesActions.filterCities,
+     setLoading: citiesActions.setLoading
  }
 
 

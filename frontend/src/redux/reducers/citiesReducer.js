@@ -1,9 +1,9 @@
 
-
 const initialState ={
     cities:[],
     filteredCities:[],
-    singleCity:{}
+    singleCity:{},
+    loading: ''
 }
 
 function citiesReducer(state= initialState, action){
@@ -12,26 +12,35 @@ function citiesReducer(state= initialState, action){
             /* obtener todas las cities*/
             return{
                 ...state,
-                cities:action.payload
+                cities:action.payload,
+                filteredCities: action.payload,
+                loading:false
             }
-            break;
+            
           /*   filtrar cities */
         case 'FILTER_CITIES':
-            console.log('filter')
             return{
                 ...state,
-                filteredCities:action.payload
+                filteredCities:state.cities.filter(({cityName}) => cityName.toUpperCase().indexOf(action.payload.toUpperCase().trim())=== 0)
             }
-            break;
-            case 'SINGLE_CITY':
+            
+        case 'SINGLE_CITY':
                 /* obtener city por id */
-                return{
-                    ...state,
-                    singleCity:action.payload
-                }
+            
+            return{
+                ...state,
+                singleCity:state.cities.find(city => city._id === action.payload),
+                loading:false
                
-                break
-    
+            }
+             
+            
+        case 'LOADING':
+            /* preloader */
+            return{
+                ...state,
+                loading:action.payload
+            }
     
         default:
             return state

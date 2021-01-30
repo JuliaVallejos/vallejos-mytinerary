@@ -1,18 +1,25 @@
 
 const initialState ={
-    itineraries:[]
+    itineraries:[],
+    loading:''
+    
 }
 
 function itinerariesReducer(state= initialState, action){
     switch (action.type){
         case 'ALL_CITY_ITINERARIES':
-            //obtener todas las cities//
+            //obtener todos los itinerarios de una ciudad//
             return{
                 ...state,
-                itineraries:action.payload
+                itineraries:action.payload,
+                loading:false   
             }
-           
-            break
+        case 'LOADING':
+            /* preloader */
+            return{
+                ...state,
+                loading:action.payload
+            }  
         default:
             return state
 

@@ -1,19 +1,18 @@
-const NoResults = ({cities}) =>{
- 
+const NoResults = () =>{
+ const no_results ={
+     photo: '../assets/no_results.jpg',
+     text: 'No results found'
+ }
         return(
 
             <div className='cities_list'>
-                {cities.map(({cityPic,cityName},index) => {
-                return (
-                    <div  key={index} className='city' style={{
-                        backgroundImage:`url(${cityPic})`,
+                    <div className='city' style={{
+                        backgroundImage:`url(${no_results.photo})`,
                         backgroundSize: 'cover',                  
                     }}>
-                        <h4>{`${cityName}`}</h4>
+                        <h4>{no_results.text}</h4>
                     </div>
-                
-                ) })}
-                
+               
             </div>)
   
 }

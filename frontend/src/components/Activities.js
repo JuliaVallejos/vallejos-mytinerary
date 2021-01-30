@@ -1,4 +1,4 @@
-import Comment from './Comments'
+import SingleComment from './SingleComment'
 
 const Activities = (props) =>{
     const {activities,comments} = props
@@ -7,7 +7,7 @@ const Activities = (props) =>{
         <div className='more_info'>
        <h5>Activities</h5>
         <div className='activities_list'>
-            
+         
             {activities.map(activity =>{
                 return(
                     <div key={activity._id} className='activity' style={{
@@ -21,7 +21,13 @@ const Activities = (props) =>{
            
         </div>
         <h5>Comments</h5>
-        <Comment comments={comments}/>
+        <div className='comments'>
+            {comments.map(comment => {
+                return(
+                    <SingleComment key={comment._id} single_comment={comment}/>
+                )
+            })}
+        </div>
        </div>
     )
 

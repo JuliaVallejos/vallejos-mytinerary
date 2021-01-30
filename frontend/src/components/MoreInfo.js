@@ -7,7 +7,7 @@ const MoreInfo = (props) =>{
     const {activities,comments} = props
     return(
     <>   
-        <button onClick={()=> setMoreInfo(!moreInfo)}>{moreInfo ? 'View More' : 'View Less'}</button>
+        <button className='btn_info' onClick={()=> setMoreInfo(!moreInfo)}>{moreInfo ? 'View More' : 'View Less'}</button>
         {!moreInfo && <Activities activities={activities} comments={comments}/>}
     </>
  )

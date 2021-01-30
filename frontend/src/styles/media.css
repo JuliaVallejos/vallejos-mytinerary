@@ -207,6 +207,13 @@
     .loading{
         font-size:0.7em;
         text-align:center;
+        animation-name: parpadeo ;
+        animation-duration: 0.9s;
+        animation-iteration-count: infinite;
+    }
+    @keyframes parpadeo {
+        from{color:rgb(255, 255, 255);}
+        to{color:black}
     }
     .city{
         display:flex;
@@ -228,14 +235,16 @@
         color:black;
         user-select: none;
     }
+    /* ITINERARIES */
     .city_itineraries{
-        height: 70vh;
+        min-height: 70vh;
+        padding-bottom:2%;
         background-color: rgba(0, 255, 255, 0.171);
         display:flex;
         flex-direction: column;
         align-items: center;
     }
-    .city_itineraries h5{
+    .city_itineraries>h5{
         text-align: center;
         font-size:1.3em;
         background-color: rgba(245, 245, 233, 0.842);
@@ -246,7 +255,7 @@
     }
     
     .itineraries{
-        height:30%;
+       min-height:20vh;
         width:70%;
         background-color: rgba(255, 169, 169, 0.651);
         display:flex;
@@ -265,8 +274,144 @@
         width:100%;
       
     }
+   
+    .itineraries_list{
+        height:100%;
+        width:100%;
+        display:flex;
+        flex-direction: column;
+        margin:2%;
+    }
+    .single_itinerary{
+        margin:2%;
+        
+        color:white;
+        background-color:rgb(132, 12, 12);
+        border-radius:5px;
+        padding:2%;
+    }
+    .single_itinerary>h5{
+        font-size:0.6em;
+        text-align:center;
+        background-color:rgba(238, 141, 141, 0.705);
+        padding:1%;
+        width:100%;
+        color:rgb(3, 3, 19);
+        margin-bottom:2%;
+       
+
+    }
+    .center_itinerary{
+        display:flex;
+        justify-content:space-between;
+        height:8vh;
+    }
+    .single_itinerary .info{
+        display: flex;
+        flex-direction:column;
+        flex:1;
+        justify-content: space-around;
+        height:80%;
+
+    }
+   
+    .info_data{
+        font-size:0.5em;
+        display:flex;
+        justify-content:space-evenly
+    }
+    .info_data p{
+        margin:0
+    }
+    .user{
+        width:10%;
+        height:100%;
+        display: flex;
+        flex-direction: column;
+        align-items:center;
+        font-size:0.4em;
+        
+    }
+    .user_img{
+        width:90%;
+        height:100%;
+        border-radius:100%;
+    }
+    .center_itinerary h6{
+        font-size:0.7em;
+        text-align:center;
+    }
+
+    .btn_info{
+        align-self:center;
+        font-size:0.5em;
+        background-color:rgba(235, 172, 172, 0.836);
+    }
+    .more_info h5{
+        text-align:center;
+        font-size:0.8em;
+        
+    }
+    .activities_list{
+        display:flex;
+        justify-content: space-evenly;
+        height:20vw;
+    }
+    .activity{
+        display:flex;
+        align-items:flex-end;
+        width:30%;
+        height:90%;
+        background-position: center;
+    }
+    .activity h6{
+        display:flex;
+        justify-content:center;
+        align-items:center;
+        padding:1.2% 2%;
+        color:black;
+        background-color:rgb(223, 243, 243);
+        width:100%;
+        text-align:center;
+        height:2em;
+        font-size:0.5em;
+    }
+    .single_comment{
+        background-color:rgb(223, 243, 243);
+        padding:1%;
+        margin:2%;
+        border-radius:5px;
+        color:black;
+        font-size:0.5em;
+    }
+    .user_comment{
+        display: flex;
+        align-items:center;
+        padding-bottom: 1%;
+    }
+    .user_comment img{
+        margin:0 1% 0 0;
+        background-color:rgb(255, 255, 255);
+        border-radius:100%;
+        background-size:contain;
+        background-repeat:no-repeat;
+        background-position:center;
+        height:4vh;
+        
+    }
+    .user_comment p{
+        margin:0;
+        padding:0;
+    }
+    .buttons{
+        display:flex;
+        justify-content: space-between;
+        width:60%;
+    }
+
+}
     button.back{
-        width:25vw;
+        width:20vw;
         padding:0 2%;
         background-image:url('../assets/button.jpg');
         background-size:cover;
@@ -275,7 +420,7 @@
         color:rgb(255, 255, 255);
         border-radius: 20px;
         box-shadow: 0 0 3px 3px black;
-}
+    }
     /* footer */
     footer{
        
@@ -325,7 +470,7 @@
         display:none;
     }
     
-}
+
 @media(min-width:630px)and (max-width:1150px){
     html *{
         margin:0;
@@ -524,6 +669,16 @@
         text-align: center;
         font-size: 1em;
     }
+    .loading{
+    
+        animation-name: parpadeo ;
+        animation-duration: 0.9s;
+        animation-iteration-count: infinite;
+    }
+    @keyframes parpadeo {
+        from{color:rgb(255, 255, 255);}
+        to{color:black}
+    }
     .city{
         display:flex;
         justify-content: center;
@@ -543,44 +698,173 @@
         color:rgb(1, 1, 19);
         user-select: none;
     }
+    /* ITINERARIES */
     .city_itineraries{
-        height: 80vh;
-        background-color: rgba(0, 255, 255, 0.171);
+        min-height: 90vh;
+        padding:5%;
         display:flex;
         flex-direction: column;
         align-items: center;
     }
-  
-.city_itineraries h5{
-    text-align: center;
-    font-size:2.6em;
-    background-color: rgba(245, 245, 233, 0.842);
-    width:40%;
-    border-radius:25px;
-    margin:2% 0;
-    box-shadow: 0 0 8px 4px black;
+
+    .city_itineraries>h5{
+        text-align: center;
+        display:flex;
+        justify-content: center;
+        align-items: center;
+        font-size:3em;
+        background-color: rgba(245, 245, 233, 0.842);
+        width:40%;
+        border-radius:25px;
+        margin-bottom:2%;
+        box-shadow: 0 0 8px 4px black;
+    }
+    .itineraries_list{
+        width:100%;
+        display:flex;
+        flex-direction: column;
+    
+        margin:2%;
+    }
+    .single_itinerary{
+        margin:5%;
+        color:white;
+        background-color:rgb(132, 12, 12);
+        border-radius:5px;
+        padding:2%;
+    }
+    .single_itinerary>h5{
+        font-size:1.6em;
+        text-align:center;
+        background-color:rgba(238, 141, 141, 0.705);
+        padding:1%;
+        width:100%;
+        color:rgb(3, 3, 19);
+        margin-bottom:2%;
+
+    }
+    .center_itinerary{
+        display:flex;
+        justify-content:space-between;
+        height:15vh;
+    }
+    .single_itinerary .info{
+        display: flex;
+        flex-direction:column;
+        flex:1;
+        justify-content: space-around;
+    
+    }
+    .single_itinerary button{
+        padding:0 1%;
+        font-size:0.8em;
+        background-color:rgba(235, 172, 172, 0.836);
+    }
+    .info_data{
+        display:flex;
+        justify-content:space-evenly
+    }
+    .user{
+        width:15%;
+        height:90%;
+        
+        display: flex;
+        flex-direction: column;
+        align-items:center
+        
+    }
+    .user_img{
+        width:90%;
+        height:100%;
+        border-radius:100%;
+    }
+    .center_itinerary h6{
+        font-size:0.7em;
+    text-align:center;
+    }
+    .itineraries{
+        min-height:40vh;
+        width:85%;
+        background-color: rgba(255, 169, 169, 0.651);
+        display:flex;
+        justify-content:center;
+        align-items: center;
+        border-radius:20px;
+        margin-bottom:4%;
+
+    }
+    .itineraries h4{
+        text-align:center;
+        font-size:2em;
+        padding:2%;
+        color:white;
+        background-color:rgba(132, 12, 12, 0.897);
+        width:100%;
+    
+    }
+    .btn_info{
+        align-self:center;
+    }
+    .more_info h5{
+        text-align:center;
+        
+    }
+    .activities_list{
+        display:flex;
+        justify-content: space-evenly;
+        height:20vw;
+    }
+    .activity{
+        display:flex;
+        align-items:flex-end;
+        width:30%;
+        height:90%;
+        background-position: center;
+    }
+    .activity h6{
+        display:flex;
+        justify-content:center;
+        align-items:center;
+        padding:1% 2%;
+        color:black;
+        background-color:rgb(223, 243, 243);
+        width:100%;
+        text-align:center;
+        height:2.8em;
+    }
+    .single_comment{
+        background-color:rgb(223, 243, 243);
+        padding:1%;
+        margin:2%;
+        border-radius:5px;
+        color:black;
+        font-size:0.8em;
+    }
+    .user_comment{
+        display: flex;
+        align-items:center;
+        padding-bottom: 1%;
+    }
+    .user_comment img{
+        margin:0 1% 0 0;
+        background-color:rgb(255, 255, 255);
+        border-radius:100%;
+        background-size:contain;
+        background-repeat:no-repeat;
+        background-position:center;
+        height:4vh;
+        
+    }
+    .user_comment p{
+        margin:0;
+        padding:0;
+    }
+    .buttons{
+        display:flex;
+        justify-content: space-between;
+        width:40%;
     }
 
-.itineraries{
-    height:40vh;
-    width:70%;
-    background-color: rgba(255, 169, 169, 0.651);
-    display:flex;
-    justify-content:center;
-    align-items: center;
-    border-radius:20px;
-    margin-bottom:4%;
-
-}
-.itineraries h4{
-    text-align:center;
-    font-size:2em;
-    padding:2%;
-    color:white;
-    background-color:rgba(132, 12, 12, 0.897);
-    width:100%;
-  
-}
     button.back{
         width:13vw;
         padding:0 2%;
