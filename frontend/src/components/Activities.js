@@ -18,7 +18,6 @@ const Activities = (props) =>{
                     </div>
                 )
             })}
-           
         </div>
         <h5>Comments</h5>
         <div className='comments'>
