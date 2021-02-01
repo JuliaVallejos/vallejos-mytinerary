@@ -1,6 +1,6 @@
 import React, {useEffect} from 'react'
 import {Link} from 'react-router-dom'
-import LittleHeader from './LittleHeader'
+import SecondHeader from './SecondHeader'
 import ItinerariesList from './ItinerariesList'
 import {connect} from 'react-redux'
 import citiesActions from '../redux/actions/citiesActions'
@@ -27,9 +27,9 @@ const Itineraries = (props) =>{
     return(
        
         <div className='itineraries_page'>
-            <LittleHeader />
+            <SecondHeader />
             <h3>Itineraries</h3>
-            {(city!== undefined && itinerariesList!==undefined)?
+            {(city && itinerariesList )?
             <div className='city_itineraries' style={{
                     backgroundImage:`url(${city.cityPic})`,
                     backgroundSize:'cover',

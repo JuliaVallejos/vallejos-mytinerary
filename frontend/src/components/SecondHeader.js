@@ -2,7 +2,7 @@ import Logo from './Logo'
 import Nav from './Nav'
 
 
-const LittleHeader = () =>{
+const SecondHeader = () =>{
 
    
     return(
@@ -17,4 +17,4 @@ const LittleHeader = () =>{
         </header>
     )
 }
-export default LittleHeader
+export default SecondHeader

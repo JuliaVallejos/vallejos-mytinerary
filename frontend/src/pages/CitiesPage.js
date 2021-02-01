@@ -10,7 +10,6 @@ import NoResults from '../components/NoResults'
 const CitiesPage= (props) =>{
 
  const city_search= document.querySelector('#search')
-/*  const [loading,setLoading] = useState(true) */
  const {getCities,filterCities,newCities,loading,setLoading} = props
 
     useEffect(() => {

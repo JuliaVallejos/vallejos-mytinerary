@@ -1,4 +1,3 @@
-
 const initialState ={
     itineraries:[],
     loading:''
@@ -8,7 +7,7 @@ const initialState ={
 function itinerariesReducer(state= initialState, action){
     switch (action.type){
         case 'ALL_CITY_ITINERARIES':
-            //obtener todos los itinerarios de una ciudad//
+            /*obtener todos los itinerarios de una ciudad */
             return{
                 ...state,
                 itineraries:action.payload,

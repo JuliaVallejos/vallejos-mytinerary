@@ -16,12 +16,9 @@ const citiesController = {
     allCities: (req,res) => {
        City.find()
         .then(data =>{
-            return res.json({success:true,response:data})
+            return res.json({success:true,response:data})})
         .catch(error =>{
-            return res.json({success:false, error})
-        })
-           
-    })
+            return res.json({success:false, error})})
     },
     /* muestra una ciudad buscando por id */
     itinerariesCity: (req,res) =>{
