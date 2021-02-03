@@ -6,6 +6,7 @@ import HomePage from './pages/HomePage'
 import CitiesPage from './pages/CitiesPage'
 import Footer from './components/Footer'
 import Itineraries from './components/Itineraries'
+import Register from './pages/Register';
 
 function App() {
   return (
@@ -15,6 +16,7 @@ function App() {
         <Route exact path='/' component={HomePage}/>
         <Route path='/cities' component={CitiesPage}/>
         <Route path='/itineraries/:id' component={Itineraries}/>
+        <Route path='/signup' component={Register}/>
         </Switch>
         <Footer/>
       </BrowserRouter>

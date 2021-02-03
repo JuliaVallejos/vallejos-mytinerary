@@ -15,7 +15,7 @@ const ItinerariesList = (props) =>{
                         <h5>{title}</h5>
                         <div className="center_itinerary">
                             <div className='user'>
-                                <div  className='user_img' style={{
+                                <div  className='user_pic' style={{
                                     backgroundImage:`url(${userPic})`,
                                     backgroundSize: 'cover',
                                 }}> </div>
@@ -25,7 +25,7 @@ const ItinerariesList = (props) =>{
                                 <div className="info_data">
                                     <p>{`${likes} `}<i className="far fa-heart"></i></p>
                                     <p>{`Duration: ${duration} hs`}</p>
-                                    {'$'.repeat(price)}
+                                
                                 </div>
                                 <div className='info_data'>
                                     {hashtags.map((hashtag,index) => 

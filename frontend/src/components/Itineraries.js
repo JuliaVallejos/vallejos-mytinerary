@@ -5,6 +5,7 @@ import ItinerariesList from './ItinerariesList'
 import {connect} from 'react-redux'
 import citiesActions from '../redux/actions/citiesActions'
 import itinerariesActions from '../redux/actions/itinerariesActions'
+import PulseLoader from "react-spinners/PulseLoader"
 
 /* componente de la página Itineraries */
 
@@ -39,7 +40,7 @@ const Itineraries = (props) =>{
               <h5>{props.city.cityName}</h5>
               
                 <div className='itineraries'>
-                {loading===true ? <h4 className='loading'>Loading...</h4> :
+                {loading===true ? <PulseLoader loading={loading}  color={'brown'} size={25}/>:
                     itinerariesList.length===0 ? <h4>No itineraries yet. Make one!</h4> : <ItinerariesList itinerariesList={itinerariesList}/>}
                 </div>
                 <div className='buttons'>

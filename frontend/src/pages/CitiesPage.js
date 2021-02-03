@@ -5,6 +5,7 @@ import Header from '../components/Header'
 import {connect} from 'react-redux'
 import citiesActions from '../redux/actions/citiesActions'
 import NoResults from '../components/NoResults'
+import PulseLoader from "react-spinners/PulseLoader";
 
 
 const CitiesPage= (props) =>{
@@ -14,7 +15,7 @@ const CitiesPage= (props) =>{
 
     useEffect(() => {
         setLoading(true)
-        getCities() 
+        getCities()
     },[setLoading,getCities]) 
 
     useEffect(() => {
@@ -28,8 +29,8 @@ const CitiesPage= (props) =>{
         <div className="cities_page">
             <h3>Cities</h3>
             <input id='search' type='text' placeholder='Find your City!' onChange={()=> filterCities(city_search.value)} ></input>
-            {(loading && newCities.length===0)&&<h2 className='loading'>...Loading...</h2>}
-            
+            {(loading && newCities.length===0)&&<PulseLoader loading={loading}  color={'brown'} size={20}/>}
+            {/* <h2 className='loading'>...Loading...</h2> */}
             <CitiesList cities={newCities} />
             {(newCities.length===0 && loading===false)&& <NoResults/>}
             <Link to='/'><button className="back">Back to Home</button></Link>

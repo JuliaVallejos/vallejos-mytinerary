@@ -23,9 +23,10 @@ const Activities = (props) =>{
         <div className='comments'>
             {comments.map(comment => {
                 return(
-                    <SingleComment key={comment._id} single_comment={comment}/>
+                    <SingleComment key={comment._id} single_comment={comment}/> 
                 )
             })}
+            <div className='commentary'><input className='input_comment' type='text' placeholder='Please Login to comment'></input><i className="fas fa-share"></i></div>
         </div>
        </div>
     )
