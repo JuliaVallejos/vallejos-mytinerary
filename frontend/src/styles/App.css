@@ -452,7 +452,7 @@ input#search{
 }
 button.back{
     width:13vw;
-    margin-top:4%;
+    margin:4% 0;
     padding:0 2%;
     background-image:url('../assets/button.jpg');
     background-size:cover;
@@ -474,10 +474,18 @@ button.back{
     background-size: cover;
     background-position: center;
     min-height: 70vh;
-    align-items:center;
+    
     display:flex;
     flex-direction: column;
    
+}
+.register p{
+    text-align:center;
+    color:rgba(37, 32, 32, 0.932)
+}
+.register p:hover{
+    text-align:center;
+    color:rgba(95, 24, 24, 0.877)
 }
 
 form{
@@ -488,6 +496,7 @@ form{
     display: flex;
     flex-direction: column;
     justify-content: space-between;
+    text-align:center;
     height: 60%;
 }
 
@@ -497,11 +506,13 @@ form input, form select{
     outline:none;
     border:0;
     border-radius: 10px;
+    width:70%
 }
+
 form input::placeholder{
     color:rgba(0, 0, 0, 0.342);
 }
-form input:focus, form select:active{
+form input:focus{
     margin:1.5%;
     padding-left:3%;
     background-color:  rgba(58, 158, 240, 0.267);

@@ -2,6 +2,9 @@ const express = require('express')
 const router = express.Router()
 const citiesController = require('../controllers/citiesController')
 const itinerariesController = require('../controllers/itinerariesController')
+const usersController = require('../controllers/usersController')
+const passport = require('passport')
+require ('../config/passport')
 
 router.route('/cities')
 .get(citiesController.allCities)
@@ -12,10 +15,13 @@ router.route('/cities/:id')
 
 router.route('/:idCity/itineraries')
 .get(itinerariesController.allItineraries)
-.post(itinerariesController.addItinerary)
+.post(passport.authenticate('jwt',{session:false}),itinerariesController.addItinerary)
 
 router.route('/itineraries/:idItinerary')
 .delete(itinerariesController.deleteItinerary)
+
+router.route('/user/register')
+.post(usersController.newUser)
 
 
 module.exports = router

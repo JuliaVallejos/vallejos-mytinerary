@@ -22,7 +22,7 @@ const Nav = () =>{
           {openMenu&& 
                     <div className='dropdown_content'>
                         <Link to='/login'><p>Log In</p></Link>
-                        <Link to='/signup'><p>Register</p></Link>
+                        <Link to='/register'><p>Register</p></Link>
                     </div>}
           
                 
