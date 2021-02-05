@@ -3,7 +3,6 @@ import SecondHeader from '../components/SecondHeader'
 import {Link} from 'react-router-dom'
 import React,{useState} from 'react'
 import Swal from 'sweetalert2'
-
 import {connect} from 'react-redux'
 import usersActions from '../redux/actions/usersActions'
 
@@ -60,7 +59,8 @@ const Register = (props) => {
                     <label htmlFor='userPic'><i className="fas fa-camera"></i><input type='text'name='userPic' id='userPic' placeholder='User Photo' onChange={readForm}/></label>
                     <label htmlFor ='country'><i className="fas fa-globe-americas"></i><Countries readForm={readForm}/></label>
                     <button className='back' onClick={send_data} type='submit'>Submit</button>
-                    {errors.map((error,index) =>{
+                   
+                    {errors&& errors.map((error,index) =>{
                         return ( <p key={index}>{error.message}</p>)
                     })}
                     <Link to ='/login'><p>Do you already have an account? Log in here</p></Link>

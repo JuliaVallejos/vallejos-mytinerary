@@ -1,4 +1,5 @@
 import axios from 'axios'
+import Swal from 'sweetalert2'
 
 const usersActions={
    createNewUser: newUser => {
@@ -6,7 +7,7 @@ const usersActions={
           try{
             const data = await axios.post('http://localhost:4000/api/user/register',newUser)
             if (data.data.success){
-              dispatch({type:'NEW_USER', payload:data.data.response})
+              dispatch({type:'LOGIN', payload:data.data.response})
               return data.data.response
             } else{
             return data.data
@@ -15,10 +16,46 @@ const usersActions={
           console.log(error)
         }}},
 
-    login_user:()=>{
+    login_user:newUser=>{
       return async (dispatch,getstate) => {
-      dispatch({type:'LOGIN', payload:''})
-    }},
+        try{
+          const data = await axios.post('http://localhost:4000/api/user/login',newUser)
+          if (data.data.success){
+            
+            dispatch({type:'LOGIN', payload:data.data.response})
+            return data.data.response
+          } else{
+          return data.data
+          }
+      }catch(error){
+        console.log(error)
+      }}},
+      login_LS: (token) =>{
+        return async (dispatch,getState) =>{
+          try{
+          const data = await axios.post('http://localhost:4000/api/user/verification',{token},{
+            headers:{
+              Authorization: `Bearer ${token}`
+            }
+
+          })
+          if (data.data.success){
+            dispatch({type:'LOGIN', payload:data.data.response})
+         
+          console.log(data.data)
+          }
+          
+        } catch(error){
+          if(error.response.status===401){
+            localStorage.clear()
+            Swal.fire('You are not authorized')
+            const backToHome ='/'
+            return backToHome
+          }
+        }
+          
+        }
+      },
     logout_user:()=>{
       return async (dispatch,getstate) => {
       dispatch({type:'LOGOUT', payload:''})

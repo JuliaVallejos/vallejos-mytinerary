@@ -6,11 +6,12 @@ import usersActions from '../redux/actions/usersActions'
 const Nav = (props) =>{
     const photo = require("../assets/male-user.png")
     const {loggedUser,logout_user} = props
-    const [openMenu,setOpenMenu]= useState(false) 
+    const [openMenu,setOpenMenu]= useState(false)
+    
     return(
         <nav>
           <div className='nav_buttons'>
-              {loggedUser&& <p>Hello {loggedUser.name}</p> }
+              {loggedUser&& <p>Hi{loggedUser.name}</p> }
             <div onClick={()=> setOpenMenu(!openMenu)} className='user_pic btn_dropdown' style={
                 { backgroundImage:`url(${loggedUser? loggedUser.userPic : photo.default})`,backgroundSize:'cover',backgroundPosition:'center'}}></div>
             <div className='links'>

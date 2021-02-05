@@ -24,5 +24,9 @@ router.route('/itineraries/:idItinerary')
 router.route('/user/register')
 .post(validator.validAccount,usersController.newUser)
 
+router.route('/user/login')
+.post(usersController.login)
 
+router.route('/user/verification')
+.post(passport.authenticate('jwt',{session:false}),usersController.login_LS)
 module.exports = router

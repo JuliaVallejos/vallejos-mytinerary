@@ -3,14 +3,19 @@ const initialState ={
 }
  function usersReducer(state= initialState,action){
     switch (action.type) {
-        case 'NEW_USER':
-            return{
-                ...state,
-                loggedUser:action.payload
-            }
+        
         case 'LOGIN':
-        return state
+          
+            localStorage.setItem('name',action.payload.name)
+            localStorage.setItem('userPic',action.payload.userPic)
+            localStorage.setItem('token',action.payload.token)
+        return {
+            ...state,
+            loggedUser:action.payload
+        }
+       
         case 'LOGOUT':
+            localStorage.clear()
            
             return{
                 ...state,
