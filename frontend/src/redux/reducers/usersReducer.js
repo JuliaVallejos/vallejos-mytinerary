@@ -8,6 +8,14 @@ const initialState ={
                 ...state,
                 loggedUser:action.payload
             }
+        case 'LOGIN':
+        return state
+        case 'LOGOUT':
+           
+            return{
+                ...state,
+                loggedUser:null
+            }
         default:
             return state
 

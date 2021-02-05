@@ -6,7 +6,8 @@ const userSchema = new mongoose.Schema({
     userPic: {type:String, required:true},
     country: {type:String, required:true},
     password: {type:String, required:true},
-    rol:{type:String,required:false,default:'nonAdmin'}
+    rol:{type:String,required:false,default:'nonAdmin'},
+    googleUser:{type:Boolean, default:false}
 })
 
 const User = mongoose.model('user',userSchema)

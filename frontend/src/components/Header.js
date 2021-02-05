@@ -2,6 +2,7 @@ import Logo from './Logo'
 import Nav from './Nav'
 
 
+
 const Header = () =>{
     return(
         <header>
@@ -10,4 +11,6 @@ const Header = () =>{
         </header>
     )
 }
+
+
 export default Header
