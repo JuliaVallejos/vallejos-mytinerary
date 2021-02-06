@@ -60,8 +60,25 @@ const usersActions={
     logout_user:()=>{
       return async (dispatch,getstate) => {
       dispatch({type:'LOGOUT', payload:''})
-    }}
+    }},
+    add_comment: (comment,idItinerary) =>{
+      return async (dispatch,getstate) => {
+        
+        try{
+          const data = await axios.post(`http://localhost:4000/api/itineraries/${idItinerary}`,comment)
+           
+          if (data.data.success){
+            dispatch({type:'NEW_COMMENT', payload:''})
+          }
+          
+        } catch(error){
+          const data ={errores:{details:[{message:'An error occurred'}]}}
+          return data
+
+        }
+       
+    }
    
-}
+}}
 export default usersActions
 

@@ -1,7 +1,6 @@
 
 import MoreInfo from './MoreInfo'
 
-
 const ItinerariesList = (props) =>{
  
    return(
@@ -35,7 +34,7 @@ const ItinerariesList = (props) =>{
                                 </div>
                             </div>
                         </div>
-                        <MoreInfo activities={activities} comments={comments}/>
+                        <MoreInfo activities={activities} comments={comments} idItinerary={_id}/>
                     </div>
                      
                 ) })}

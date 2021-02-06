@@ -21,6 +21,34 @@ const itinerariesController={
         Itinerary.find({idCity:id}).populate('idCity')
         .then(response => res.json({success:true,response}))
         .catch(error=> res.json({success:true, error}))
+    },
+    addComment:(req,res) =>{
+        const id= req.params.idItinerary
+        const {name,userPic,comment} = req.body
+        const newComment= {name,userPic,comment}
+        
+        Itinerary.findOneAndUpdate({_id:id},{ $push: { 'comments': newComment}},{new:true})
+        .then( itinerary => res.json({success:true,message:'Comment added',itinerary}))
+        .catch(error => res.json({success:false,error}))
+
+    },
+    deleteComment:(req,res) =>{
+        const idItinerary= req.params.idItinerary
+        const idComment=req.params.idComment
+        Itinerary.findOneAndUpdate({_id:idItinerary},{ $pull: {comments: {_id:idComment}}},{new:true}) 
+        .then( itinerary => res.json({success:true,message:'Comment deleted',itinerary}))
+        .catch(error => res.json({success:false,error}))
+
+    },
+    modifyComment:(req,res) =>{
+        const idItinerary= req.params.idItinerary
+        const idComment=req.params.idComment
+        const newComment = req.body.comment
+        console.log(newComment)
+        Itinerary.findOneAndUpdate({_id:idItinerary,'comments._id':idComment},{ $set: {'comments.$.comment':newComment}},{new:true}) 
+        .then( itinerary => res.json({success:true,message:'Comment edited',itinerary}))
+        .catch(error => res.json({success:false,error}))
+
     }
 }
 

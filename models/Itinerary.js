@@ -14,7 +14,7 @@ const itinerarySchema = new mongoose.Schema({
         activityPic:String
     }],required:true},
     comments: {type:[{
-        userName: String,
+        name: String,
         userPic: String,
         comment: String,
     }],required:false}

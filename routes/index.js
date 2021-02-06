@@ -20,6 +20,12 @@ router.route('/:idCity/itineraries')
 
 router.route('/itineraries/:idItinerary')
 .delete(itinerariesController.deleteItinerary)
+.put(itinerariesController.addComment)
+
+router.route('/itineraries/:idItinerary/:idComment')
+.delete(itinerariesController.deleteComment)
+.put(itinerariesController.modifyComment)
+
 
 router.route('/user/register')
 .post(validator.validAccount,usersController.newUser)

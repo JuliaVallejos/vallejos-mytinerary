@@ -21,6 +21,8 @@ const initialState ={
                 ...state,
                 loggedUser:null
             }
+        case 'NEW_COMMENT':
+            return state
         default:
             return state
 
