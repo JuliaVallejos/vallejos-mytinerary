@@ -7,7 +7,6 @@ const SecondHeader = () =>{
    
     return(
         <header style={{
-            
             backgroundImage:`url(../assets/fondo_mapa3.jpg)`,
             backgroundSize:'contain'
 

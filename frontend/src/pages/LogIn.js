@@ -4,6 +4,7 @@ import {useState} from 'react'
 import Swal from 'sweetalert2'
 import {connect} from 'react-redux'
 import usersActions from '../redux/actions/usersActions'
+import {GoogleLogin} from 'react-google-login'
 
 const LogIn = (props) => {
     const [loggedUser,setLoggedUser] = useState({
@@ -20,6 +21,25 @@ const LogIn = (props) => {
             [property]:value
         })
     }
+    const responseGoogle = async (response) => {
+        if(response.error){
+            Swal.fire('Error in LogIn')
+        }else{
+           const data = await props.login_user({
+                username:response.profileObj.email,
+                password:response.googleId,
+                googleUser:true,
+            })
+            if(data.errores){
+                setErrors(data.errores.details)
+            }else{
+                setErrors([])
+                Swal.fire(`Welcome ${data.name}`)
+                props.history.push('/')
+            }
+        }
+       
+      }
     const send_data = async e =>{
         e.preventDefault()
         if(loggedUser.name==='' || loggedUser.password===''){
@@ -46,9 +66,16 @@ const LogIn = (props) => {
 
                 <button className='back' onClick={send_data} type='submit'>Log In</button>
                 {errors&& errors.map((error,index) =>{
-                        return ( <p key={index}>{error.message}</p>)
+                        return ( <p className='errors' key={index}>{error.message}</p>)
                     })}
-                <Link to ='/register'><p>Don't have account? Create one!</p></Link>
+                <GoogleLogin
+                clientId="801455530732-u3v9b8l6s48ctj7nui20nn724mahsoff.apps.googleusercontent.com"
+                buttonText="Login whith Google"
+                onSuccess={responseGoogle}
+                onFailure={responseGoogle}
+                cookiePolicy={'single_host_origin'}
+                     />
+                <Link to ='/register'><p className='btn_p'>Don't have account? Create one!</p></Link>
 
             </form>
         </div>

@@ -11,7 +11,7 @@ const Nav = (props) =>{
     return(
         <nav>
           <div className='nav_buttons'>
-              {loggedUser&& <p>Hi{loggedUser.name}</p> }
+              {loggedUser&& <p>Hi {loggedUser.name}</p> }
             <div onClick={()=> setOpenMenu(!openMenu)} className='user_pic btn_dropdown' style={
                 { backgroundImage:`url(${loggedUser? loggedUser.userPic : photo.default})`,backgroundSize:'cover',backgroundPosition:'center'}}></div>
             <div className='links'>
@@ -28,7 +28,7 @@ const Nav = (props) =>{
           {openMenu&& 
                     <div className='dropdown_content'>
                         <Link onClick={loggedUser&& logout_user} to='/login'><p>{loggedUser? 'Log Out' : 'Log In'}</p></Link>
-                        <Link to='/register'><p>Register</p></Link>
+                        {!loggedUser&& <Link to='/register'><p>Register</p></Link>}
                     </div>}
           
                 

@@ -29,4 +29,11 @@ router.route('/user/login')
 
 router.route('/user/verification')
 .post(passport.authenticate('jwt',{session:false}),usersController.login_LS)
+
+router.route('/user/all')
+.get(usersController.all_users)
+
+router.route('/user/:id')
+.delete(usersController.delete_user)
+
 module.exports = router

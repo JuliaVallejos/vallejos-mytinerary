@@ -14,7 +14,7 @@ const Countries = (props) =>{
     return(
 
       <select id="country" name="country" onChange={props.readForm}> 
-        <option value='' >Country</option>
+        <option value='' >Country*</option>
         {countries.map((country,index) =>{
             return (
             <option key={index} value={country.name}>{country.name}</option>

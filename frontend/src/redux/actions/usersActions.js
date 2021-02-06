@@ -13,7 +13,8 @@ const usersActions={
             return data.data
             }
         }catch(error){
-          console.log(error)
+          const data ={errores:{details:[{message:'An error occurred'}]}}
+          return data
         }}},
 
     login_user:newUser=>{
@@ -25,10 +26,12 @@ const usersActions={
             dispatch({type:'LOGIN', payload:data.data.response})
             return data.data.response
           } else{
+          
           return data.data
           }
       }catch(error){
-        console.log(error)
+        const data ={errores:{details:[{message:'An error occurred'}]}}
+        return data
       }}},
       login_LS: (token) =>{
         return async (dispatch,getState) =>{
@@ -41,8 +44,6 @@ const usersActions={
           })
           if (data.data.success){
             dispatch({type:'LOGIN', payload:data.data.response})
-         
-          console.log(data.data)
           }
           
         } catch(error){

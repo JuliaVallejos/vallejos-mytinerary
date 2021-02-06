@@ -484,11 +484,11 @@ button.back{
     flex-direction: column;
    
 }
-.register p{
+.btn_p{
     text-align:center;
     color:rgba(37, 32, 32, 0.932)
 }
-.register p:hover{
+.btn_p:hover{
     text-align:center;
     color:rgba(95, 24, 24, 0.877)
 }
@@ -523,6 +523,9 @@ form input:focus{
     background-color:  rgba(58, 158, 240, 0.267);
     
     border-radius: 10px;
+}
+p.errors{
+    color:red
 }
 form button{
     align-self:center;
