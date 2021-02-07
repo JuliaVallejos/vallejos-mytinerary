@@ -16,7 +16,7 @@ router.route('/cities/:id')
 
 router.route('/:idCity/itineraries')
 .get(itinerariesController.allItineraries)
-.post(passport.authenticate('jwt',{session:false}),itinerariesController.addItinerary)
+.post(/* passport.authenticate('jwt',{session:false}), */itinerariesController.addItinerary)
 
 router.route('/itineraries/:idItinerary')
 .delete(itinerariesController.deleteItinerary)
@@ -24,7 +24,7 @@ router.route('/itineraries/:idItinerary')
 
 router.route('/itineraries/:idItinerary/:idComment')
 .delete(itinerariesController.deleteComment)
-.put(itinerariesController.modifyComment)
+.put(itinerariesController.editComment)
 
 
 router.route('/user/register')

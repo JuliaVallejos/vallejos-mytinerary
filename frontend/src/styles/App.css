@@ -440,6 +440,16 @@ input#search{
     display:flex;
     align-items:center;
 }
+.controls{
+    display:flex;
+    justify-content:space-between
+}
+.btn_controls{
+    display:flex;
+    flex-direction: column;
+    justify-content: space-between;
+    height: 6vh;
+}
 .input_comment{
     height:2.2em;
     width:90%;
@@ -449,6 +459,10 @@ input#search{
     background-color:rgb(230, 230, 247);
     padding-left:1%;
    
+}
+.guest{
+    font-size:0.8em;
+    margin-left:2%
 }
 .buttons{
     display:flex;

@@ -1,23 +1,28 @@
 import SingleComment from './SingleComment'
 import Swal from 'sweetalert2'
-import {useState} from 'react'
 import {connect} from 'react-redux'
+import itinerariesActions from '../redux/actions/itinerariesActions'
 import usersActions from '../redux/actions/usersActions'
 
 const ActivitiesAndComments = (props) =>{
-    
-    const {activities,comments,idItinerary,loggedUser,add_comment} = props
-    const [update,setUpdate] = useState(false)
    
+    const {activities,comments,idItinerary,loggedUser,add_comment} = props
+
     const post_comment = async () =>{
-        const comment = document.getElementById('input_comment')
-      
-        const data = await add_comment(comment,idItinerary)
-        if(data.errores){
-            Swal('Error')
+    const newComment = {
+            name: loggedUser.name,
+            userPic:loggedUser.userPic,
+            comment:document.getElementById('input_comment').value
+    }
+    
+        const data = await add_comment(newComment,idItinerary)
+        
+        if(data.data.errores){
+            Swal.fire('Error')
         }else{
-           Swal('Comment Added')
-           setUpdate(!update)
+           document.getElementById('input_comment').value=''
+           props.itinerariesByCity(props.singleCity._id)
+          
         }
     }
     return(
@@ -40,10 +45,12 @@ const ActivitiesAndComments = (props) =>{
         <div className='comments'>
             {comments.map(comment => {
                 return(
-                    <SingleComment key={comment._id} single_comment={comment}/> 
+                    <SingleComment key={comment._id} single_comment={comment} idItinerary={idItinerary}/> 
                 )
             })}
-            <div className='commentary'><input className='input_comment' id='input_comment' type='text' placeholder={loggedUser? 'Comment here': 'Please Login to comment'}></input><i onClick={post_comment}className="fas fa-share"></i></div>
+            {loggedUser?
+            <div className='commentary'><input className='input_comment' id='input_comment' type='text' placeholder='Comment here'></input> <i onClick={post_comment} className="fas fa-share"></i></div>:
+            <p className='guest'>Please Login to comment</p>}
         </div> 
        </div>
     )
@@ -51,11 +58,14 @@ const ActivitiesAndComments = (props) =>{
 
 const mapStateToProps = state =>{
     return {
-        loggedUser : state.user.loggedUser
+        loggedUser : state.user.loggedUser,
+        singleCity :state.city.singleCity
     }
     
 }
 const mapDispatchToProps = {
-    add_comment : usersActions.add_comment
+    add_comment : usersActions.add_comment,
+    itinerariesByCity:itinerariesActions.itinerariesByCity
+   
 }
 export default connect(mapStateToProps,mapDispatchToProps)(ActivitiesAndComments)

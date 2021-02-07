@@ -23,13 +23,19 @@ const itinerariesController={
         .catch(error=> res.json({success:true, error}))
     },
     addComment:(req,res) =>{
-        const id= req.params.idItinerary
-        const {name,userPic,comment} = req.body
-        const newComment= {name,userPic,comment}
+       const idItinerary= req.params.idItinerary
+       const newComment = req.body
+      
         
-        Itinerary.findOneAndUpdate({_id:id},{ $push: { 'comments': newComment}},{new:true})
-        .then( itinerary => res.json({success:true,message:'Comment added',itinerary}))
-        .catch(error => res.json({success:false,error}))
+        
+        Itinerary.findOneAndUpdate({_id:idItinerary},{ $push: { 'comments': newComment}},{new:true})
+        .then( itinerary =>{
+            
+            res.json({success:true,message:'Comment added',itinerary})
+        } )
+        .catch(error => 
+            {console.log(error)
+                res.json({success:false,error})})
 
     },
     deleteComment:(req,res) =>{
@@ -40,12 +46,14 @@ const itinerariesController={
         .catch(error => res.json({success:false,error}))
 
     },
-    modifyComment:(req,res) =>{
+   editComment:(req,res) =>{
+   
+
         const idItinerary= req.params.idItinerary
         const idComment=req.params.idComment
-        const newComment = req.body.comment
-        console.log(newComment)
-        Itinerary.findOneAndUpdate({_id:idItinerary,'comments._id':idComment},{ $set: {'comments.$.comment':newComment}},{new:true}) 
+        const editedComment = req.body.editedComment
+       
+        Itinerary.findOneAndUpdate({_id:idItinerary,'comments._id':idComment},{ $set: {'comments.$.comment':editedComment}},{new:true}) 
         .then( itinerary => res.json({success:true,message:'Comment edited',itinerary}))
         .catch(error => res.json({success:false,error}))
 
