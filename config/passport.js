@@ -10,14 +10,15 @@ module.exports= passport.use(new jwtStrategy({
     try{
         const user = await User.findById(payload._doc._id)
             if(!user){
-                console.log('no usuario')
+              
                 return done(null,false)
             }else{
-                console.log('usuario si')
+               
+                
                 return done(null,user)
             } 
     }catch(error) {
-        console.log('error de api')
+      console.log(error)
         return done(error,false)
     }
 }))

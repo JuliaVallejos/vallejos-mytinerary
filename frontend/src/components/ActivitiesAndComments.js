@@ -9,11 +9,8 @@ const ActivitiesAndComments = (props) =>{
     const {activities,comments,idItinerary,loggedUser,add_comment} = props
 
     const post_comment = async () =>{
-    const newComment = {
-            name: loggedUser.name,
-            userPic:loggedUser.userPic,
-            comment:document.getElementById('input_comment').value
-    }
+    const newComment = document.getElementById('input_comment').value
+    
     
         const data = await add_comment(newComment,idItinerary)
         

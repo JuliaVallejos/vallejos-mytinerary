@@ -28,7 +28,7 @@ const LogIn = (props) => {
            const data = await props.login_user({
                 username:response.profileObj.email,
                 password:response.googleId,
-                googleUser:true,
+                login_google:true
             })
             if(data.errores){
                 setErrors(data.errores.details)

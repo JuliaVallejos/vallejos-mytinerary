@@ -24,10 +24,10 @@ const usersController={
        
     },
     login: (req,res) =>{
-        const {username,password} = req.body
+        const {username,password,login_google} = req.body
         User.findOne({username:username})
         .then( userExists => {
-
+            
             if(!userExists){
                 return  res.json({success:false,errores:{details:[{message:'Wrong username or password '}]}})
             }
@@ -35,16 +35,16 @@ const usersController={
             if(!passwordTrue){ 
                 return res.json({success:false,errores:{details:[{message:'Wrong username or password '}]}})
             }
-            if(!userExists.googleUser){
+            if(userExists.googleUser===true && !login_google){
                 return res.json({success:false,errores:{details:[{message:'You must Login with Google'}]}})
             }
             var token = jwt.sign({...userExists}, process.env.SECRET_KEY, {})
-            return res.json({success: true, response: {name: userExists.name,userPic: userExists.userPic,token}})
+            return res.json({success: true, response: {_id:userExists._id,name: userExists.name,userPic: userExists.userPic,token}})
         
         })
     },
     login_LS: (req,res) =>{
-            return res.json({success: true, response: {name: req.user.name,userPic: req.user.userPic,token:req.body.token}}) 
+            return res.json({success: true, response: {_id:req.user._id,name: req.user.name,userPic: req.user.userPic,token:req.body.token}}) 
 
     },
     all_users: (req,res) =>{

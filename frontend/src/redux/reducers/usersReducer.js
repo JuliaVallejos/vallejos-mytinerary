@@ -1,17 +1,20 @@
 const initialState ={
-    loggedUser:null
+    loggedUser:null,
+    loggedUserId:''
 }
  function usersReducer(state= initialState,action){
     switch (action.type) {
         
         case 'LOGIN':
-          
+         
             localStorage.setItem('name',action.payload.name)
             localStorage.setItem('userPic',action.payload.userPic)
             localStorage.setItem('token',action.payload.token)
         return {
             ...state,
-            loggedUser:action.payload
+            loggedUser:action.payload,
+            loggedUserId: action.payload._id
+         
         }
        
         case 'LOGOUT':
@@ -19,10 +22,12 @@ const initialState ={
            
             return{
                 ...state,
-                loggedUser:null
+                loggedUser:null,
+                loggedUserId:''
             }
         case 'NEW_COMMENT':
             return state
+      
         default:
             return state
 

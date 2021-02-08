@@ -61,11 +61,17 @@ const usersActions={
       return async (dispatch,getstate) => {
       dispatch({type:'LOGOUT', payload:''})
     }},
+   
     add_comment: (newComment,idItinerary) =>{
       return async (dispatch,getstate) => {
+       const token = getstate().user.loggedUser.token
        
         try{
-          const data = await axios.put(`http://localhost:4000/api/itineraries/${idItinerary}`,newComment)
+          const data = await axios.put(`http://localhost:4000/api/itineraries/${idItinerary}`,{newComment},
+          {
+            headers:{
+              Authorization: `Bearer ${token}`
+            }})
           
           if (data.data.success){
             dispatch({type:'NEW_COMMENT', payload:''})

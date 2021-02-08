@@ -1,7 +1,7 @@
 import './styles/media.css'
 import './styles/App.css';
 
-import {Route,BrowserRouter,Switch,Redirect} from 'react-router-dom'
+import {Route,BrowserRouter,Switch} from 'react-router-dom'
 import {connect} from 'react-redux'
 import {useState} from 'react'
 import HomePage from './pages/HomePage'

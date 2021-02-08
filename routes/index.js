@@ -20,12 +20,11 @@ router.route('/:idCity/itineraries')
 
 router.route('/itineraries/:idItinerary')
 .delete(itinerariesController.deleteItinerary)
-.put(itinerariesController.addComment)
+.put(passport.authenticate('jwt',{session:false}) ,itinerariesController.addComment)
 
 router.route('/itineraries/:idItinerary/:idComment')
 .delete(itinerariesController.deleteComment)
 .put(itinerariesController.editComment)
-
 
 router.route('/user/register')
 .post(validator.validAccount,usersController.newUser)
@@ -41,5 +40,6 @@ router.route('/user/all')
 
 router.route('/user/:id')
 .delete(usersController.delete_user)
+
 
 module.exports = router

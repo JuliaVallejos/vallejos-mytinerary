@@ -18,24 +18,25 @@ const itinerariesController={
     },
     allItineraries: (req,res) =>{
         const id= req.params.idCity
-        Itinerary.find({idCity:id}).populate('idCity')
+        Itinerary.find({idCity:id}).populate('idCity').populate('comments.idUser')
         .then(response => res.json({success:true,response}))
         .catch(error=> res.json({success:true, error}))
     },
     addComment:(req,res) =>{
        const idItinerary= req.params.idItinerary
-       const newComment = req.body
+       console.log(req.body)
+       const newComment = {
+           idUser:req.user._id,
+           comment:req.body.newComment}
+   
       
-        
-        
         Itinerary.findOneAndUpdate({_id:idItinerary},{ $push: { 'comments': newComment}},{new:true})
         .then( itinerary =>{
             
             res.json({success:true,message:'Comment added',itinerary})
         } )
         .catch(error => 
-            {console.log(error)
-                res.json({success:false,error})})
+            {         res.json({success:false,error})})
 
     },
     deleteComment:(req,res) =>{
@@ -48,7 +49,6 @@ const itinerariesController={
     },
    editComment:(req,res) =>{
    
-
         const idItinerary= req.params.idItinerary
         const idComment=req.params.idComment
         const editedComment = req.body.editedComment
@@ -58,6 +58,8 @@ const itinerariesController={
         .catch(error => res.json({success:false,error}))
 
     }
+    
+    
 }
 
 module.exports = itinerariesController
