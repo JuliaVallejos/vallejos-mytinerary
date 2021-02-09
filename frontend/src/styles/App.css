@@ -83,6 +83,8 @@ header nav p{
 }
 .dropdown_content a{
     text-align:center;
+    margin:1% 2%;
+    height:1.5em;
 }
 
 
@@ -337,6 +339,17 @@ input#search{
     display:flex;
     justify-content:space-around
 }
+.info_data button{
+    outline: none;
+    border:none;
+    background-color: transparent;
+    font-size: 1.2em;
+    
+}
+.red{
+    color:red;
+   
+}
 .user_pic{
     width:70px;
     height:70px;
@@ -444,6 +457,7 @@ input#search{
     justify-content:space-between
 }
 .btn_controls{
+    margin-left:2%;
     display:flex;
     flex-direction: column;
     justify-content: space-between;

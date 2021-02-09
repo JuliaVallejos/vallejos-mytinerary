@@ -1,6 +1,6 @@
 const initialState ={
     loggedUser:null,
-    loggedUserId:''
+    
 }
  function usersReducer(state= initialState,action){
     switch (action.type) {
@@ -13,7 +13,7 @@ const initialState ={
         return {
             ...state,
             loggedUser:action.payload,
-            loggedUserId: action.payload._id
+           
          
         }
        
@@ -25,7 +25,7 @@ const initialState ={
                 loggedUser:null,
                 loggedUserId:''
             }
-        case 'NEW_COMMENT':
+        case 'NO_CHANGES':
             return state
       
         default:

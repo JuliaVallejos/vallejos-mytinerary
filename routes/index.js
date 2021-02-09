@@ -16,15 +16,19 @@ router.route('/cities/:id')
 
 router.route('/:idCity/itineraries')
 .get(itinerariesController.allItineraries)
-.post(/* passport.authenticate('jwt',{session:false}), */itinerariesController.addItinerary)
+.post(itinerariesController.addItinerary)
 
 router.route('/itineraries/:idItinerary')
 .delete(itinerariesController.deleteItinerary)
-.put(passport.authenticate('jwt',{session:false}) ,itinerariesController.addComment)
+.post(passport.authenticate('jwt',{session:false}) ,itinerariesController.addComment)
 
 router.route('/itineraries/:idItinerary/:idComment')
 .delete(itinerariesController.deleteComment)
 .put(itinerariesController.editComment)
+
+router.route('/likes/:idItinerary')
+.post(itinerariesController.addLike) 
+.delete(itinerariesController.removeLike) 
 
 router.route('/user/register')
 .post(validator.validAccount,usersController.newUser)

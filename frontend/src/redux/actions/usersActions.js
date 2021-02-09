@@ -67,14 +67,14 @@ const usersActions={
        const token = getstate().user.loggedUser.token
        
         try{
-          const data = await axios.put(`http://localhost:4000/api/itineraries/${idItinerary}`,{newComment},
+          const data = await axios.post(`http://localhost:4000/api/itineraries/${idItinerary}`,{newComment},
           {
             headers:{
               Authorization: `Bearer ${token}`
             }})
           
           if (data.data.success){
-            dispatch({type:'NEW_COMMENT', payload:''})
+            dispatch({type:'NO_CHANGES', payload:''})
             return data
           }
           
@@ -92,7 +92,7 @@ const usersActions={
             
             const data = await axios.put(`http://localhost:4000/api/itineraries/${idItinerary}/${idComment}`,{editedComment})
             if (data.data.success){
-              dispatch({type:'NEW_COMMENT', payload:''})
+              dispatch({type:'NO_CHANGES', payload:''})
               return data
             }  
         } catch(error){
@@ -106,7 +106,7 @@ const usersActions={
           try{
           const data = await axios.delete(`http://localhost:4000/api/itineraries/${idItinerary}/${idComment}`)
           if (data.data.success){
-            dispatch({type:'DELETE_COMMENT', payload:''})
+            dispatch({type:'NO_CHANGES', payload:''})
             return data
           }  }  
        catch(error){
@@ -114,7 +114,42 @@ const usersActions={
           const data ={errores:{details:[{message:'An error occurred'}]}}
           return data
          
-      }}}
-}
+      }}},
+     setLike: (idItinerary,bool) =>{
+        return async (dispatch,getstate) =>{
+       console.log(idItinerary,bool)
+          const idUser = getstate().user.loggedUser._id
+          if(bool==='true'){
+            try{
+             
+              const data = await axios.post(`http://localhost:4000/api/likes/${idItinerary}`,{idUser})
+              if (data.data.success){
+                dispatch({type:'NO_CHANGES', payload:''})
+                return data
+                
+              }}  
+           catch(error){
+              const data ={errores:{details:[{message:'An error occurred'}]}}
+              return data
+            }
+          }else{
+            try{
+            
+             const data = await axios.delete(`http://localhost:4000/api/likes/${idItinerary}`,{data:{idUser}})
+              if (data.data.success){
+                dispatch({type:'NO_CHANGES', payload:''})
+                return data
+              }}  
+           catch(error){
+             
+             console.log(error)
+              const data ={errores:{details:[{message:'An error occurred'}]}}
+              return data
+            }
+          }
+          
+        }
+      }
+    } 
 export default usersActions
 

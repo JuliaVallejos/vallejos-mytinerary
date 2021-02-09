@@ -2,6 +2,7 @@ import axios from 'axios'
 
 
 const citiesActions={
+  /* obtener todas las ciudades */
     getCities: () => {
         return async (dispatch,getstate) => {
           try{
@@ -15,16 +16,18 @@ const citiesActions={
            
           }
         }},
+      /* filtro de búsqueda */
     filterCities: city_search =>{
       return async (dispatch,getstate) =>{
         dispatch({type:'FILTER_CITIES', payload:city_search})
           
       }},
+      /* obtener ciudad por id */
     getCityById: idCity => {
             return async (dispatch,getstate) =>{
               dispatch({type:'SINGLE_CITY', payload:idCity})
-         
        }},
+       /* preloader */
     setLoading: (load) => {
         return async (dispatch,getstate) => {
            

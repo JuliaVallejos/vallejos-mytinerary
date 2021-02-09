@@ -1,6 +1,7 @@
 import axios from 'axios'
 
 const itinerariesActions={
+    /* ver todos los itinerarios de una ciudad */
     itinerariesByCity:(idCity)=>{
             return async (dispatch,getstate) => {
             try{
@@ -10,9 +11,10 @@ const itinerariesActions={
                 setTimeout(function(){
                     alert('Error, back to Home')
                     window.location.href ='/'
-                  },4000)
+                  },5000)
                 }  
             }},
+    /* preloader */
     setLoading: (load) => {
         return async (dispatch,getstate) => {
             

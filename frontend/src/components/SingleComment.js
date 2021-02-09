@@ -1,6 +1,6 @@
 import {connect} from 'react-redux'
 import Swal from 'sweetalert2'
-import {useState,useEffect} from 'react'
+import {useState} from 'react'
 import usersActions from '../redux/actions/usersActions'
 import itinerariesActions from '../redux/actions/itinerariesActions'
 
@@ -11,7 +11,6 @@ const SingleComment = (props) =>{
     const [editedComment,setEditedComment] = useState(comment)
   
 
-     
    const delete_comment = async ()=>{
        const data = await props.deleteComment(props.idItinerary,_id)
        if(data.data.errores){
@@ -44,7 +43,7 @@ const SingleComment = (props) =>{
                 </div>
                 <div className='controls'>
                     {!edit?<p>{comment}</p>: <div className='edit_comment'><textarea col='2' onChange={readInput} id='edited_comment' value={editedComment}/><button className='fas fa-share' onClick={send_new_comment}> Send </button></div>}
-                   {props.loggedUserId===idUser._id && 
+                   {props.loggedUser._id===idUser._id && 
                    <div className='btn_controls'>
                        <i onClick={delete_comment} className='far fa-trash-alt'></i>
                        <i onClick={()=>setEdit(true)} className="fas fa-edit"></i>
@@ -60,7 +59,6 @@ const SingleComment = (props) =>{
 const mapStateToProps = state => {
     return {
         loggedUser : state.user.loggedUser,
-        loggedUserId : state.user.loggedUserId,
         singleCity :state.city.singleCity
         
 }}

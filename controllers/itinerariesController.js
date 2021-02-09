@@ -1,7 +1,7 @@
 const Itinerary = require('../models/Itinerary')
 
 const itinerariesController={
-    /* agrega itinerario  */
+    /* agregar itinerario  */
     addItinerary:(req,res) =>{
         const {title,idCity,userName,userPic,duration,price,likes,hashtags,activities,comments} = req.body
         const newItinerary = new Itinerary({title,idCity,userName,userPic,duration,price,likes,hashtags,activities,comments})
@@ -9,6 +9,7 @@ const itinerariesController={
         .then(newItinerary => res.json({success:true, response: newItinerary}))
         .catch(error => res.json({success:false,error}))
     },
+    /* borrar itinerario */
     deleteItinerary: (req,res) =>{
         const id= req.params.idItinerary
         Itinerary.findOneAndRemove({_id:id})
@@ -22,9 +23,9 @@ const itinerariesController={
         .then(response => res.json({success:true,response}))
         .catch(error=> res.json({success:true, error}))
     },
+    /* agregar comentario */
     addComment:(req,res) =>{
        const idItinerary= req.params.idItinerary
-       console.log(req.body)
        const newComment = {
            idUser:req.user._id,
            comment:req.body.newComment}
@@ -36,10 +37,12 @@ const itinerariesController={
             res.json({success:true,message:'Comment added',itinerary})
         } )
         .catch(error => 
-            {         res.json({success:false,error})})
+            {  res.json({success:false,error})})
 
     },
+    /* borrar comentario */
     deleteComment:(req,res) =>{
+    
         const idItinerary= req.params.idItinerary
         const idComment=req.params.idComment
         Itinerary.findOneAndUpdate({_id:idItinerary},{ $pull: {comments: {_id:idComment}}},{new:true}) 
@@ -47,6 +50,7 @@ const itinerariesController={
         .catch(error => res.json({success:false,error}))
 
     },
+    /* modificar comentario */
    editComment:(req,res) =>{
    
         const idItinerary= req.params.idItinerary
@@ -57,8 +61,31 @@ const itinerariesController={
         .then( itinerary => res.json({success:true,message:'Comment edited',itinerary}))
         .catch(error => res.json({success:false,error}))
 
+    },
+    addLike : (req,res) =>{
+        const idItinerary = req.params.idItinerary
+        const idUser = req.body.idUser
+        Itinerary.findOneAndUpdate({_id:idItinerary},{$push: { 'likes': idUser}},{new:true})
+        .then( itinerary =>{
+            
+            res.json({success:true,message:'Like added',itinerary})
+        } )
+        .catch(error =>   res.json({success:false,error}))
+
+    },
+    removeLike: (req,res) =>{
+        console.log(req.body)
+        const idItinerary = req.params.idItinerary
+        const idUser = req.body.idUser
+        
+        Itinerary.findOneAndUpdate({_id:idItinerary},{$pull: {likes: idUser}},{new:true})
+        .then( itinerary =>{
+            console.log(itinerary.likes)
+            res.json({success:true,message:'Like deleted',itinerary})
+        } )
+
+        .catch(error =>   res.json({success:false,error}))
     }
-    
     
 }
 

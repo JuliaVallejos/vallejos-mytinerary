@@ -1,10 +1,9 @@
 
 import {Link} from 'react-router-dom'
-
+ /* mapeo de las ciudades */
 const CitiesList = ({cities}) =>{
-  
+    
    return(
-             
             <div className='cities_list'>
                 
                 {cities.map(({cityPic,cityName,_id},index) => {

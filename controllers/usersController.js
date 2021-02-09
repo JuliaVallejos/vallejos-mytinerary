@@ -17,7 +17,7 @@ const usersController={
                
                 .then(newUser =>{
                     var token = jwt.sign({...newUser}, process.env.SECRET_KEY, {})
-                    res.json({success:true, response:{name: newUser.name,userPic:newUser.userPic,token}})})
+                    res.json({success:true, response:{_id:newUser._id,name: newUser.name,userPic:newUser.userPic,token}})})
                 .catch(error => res.json({success:false,error}))
             }})
         .catch(error => res.json({success:false,error}))
