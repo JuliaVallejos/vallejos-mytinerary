@@ -48,6 +48,7 @@ function App(props) {
     <Route path='/itineraries/:id' component={Itineraries}/> 
     <Route path='/register' component={Register}/>
     <Route path='/login' component={LogIn}/>
+    <Redirect to='/'/>
     
   </>}
 
@@ -56,7 +57,7 @@ function App(props) {
       <BrowserRouter>
         <Switch>
         {routes}
-        <Redirect to='/'/>
+        
         </Switch>
         <Footer/>
         

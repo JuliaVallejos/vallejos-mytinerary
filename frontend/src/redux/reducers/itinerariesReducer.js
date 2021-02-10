@@ -23,11 +23,11 @@ function itinerariesReducer(state= initialState, action){
                 loading:action.payload
             }  
         case 'CHANGES':
-           console.log('changes')
+           console.log(action.payload._id) 
             return {
                 ...state,
                 loading:false,
-                newItineraries: state.itineraries.map(itinerary => itinerary._id===action.payload._id ? itinerary=action.payload : itinerary)
+                newItineraries: state.newItineraries.map(itinerary => itinerary._id===action.payload._id ? itinerary=action.payload : itinerary)
               /* si el id del itinerario coincide con el del itinerario modificado se actualiza, sino se devuelve el itinerario como estaba */
             }
         default:

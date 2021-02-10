@@ -77,21 +77,23 @@ add_comment: (newComment,idItinerary) =>{
     setLike: (idItinerary,bool) =>{
         return async (dispatch,getstate) =>{
         const idUser = getstate().user.loggedUser._id
-        if(bool==='true'){
+        if (bool==='true')
             try{
-            
             const data = await axios.post(`http://localhost:4000/api/likes/${idItinerary}`,{idUser})
             if (data.data.success){
+               
                 dispatch({type:'CHANGES', payload:data.data.itinerary})
                 return data
             }}  
             catch(error){
             return error
-        }}else{
+        }else  {
+       
             try{
             
             const data = await axios.delete(`http://localhost:4000/api/likes/${idItinerary}`,{data:{idUser}})
             if (data.data.success){
+               
                 dispatch({type:'CHANGES', payload:data.data.itinerary})
                 return data
             }}  
@@ -99,10 +101,8 @@ add_comment: (newComment,idItinerary) =>{
             return error
             }
         }
-        
-        }
     }
     
           
-}
+}}
 export default itinerariesActions

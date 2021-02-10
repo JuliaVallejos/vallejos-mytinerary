@@ -17,6 +17,7 @@ const citiesActions={
            
           }
         }},
+        /* agregar city */
     addCity: newCity =>{
       return async (dispatch,getstate) =>{
         try{
