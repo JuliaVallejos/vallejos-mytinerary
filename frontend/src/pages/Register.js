@@ -15,7 +15,6 @@ const Register = (props) => {
         password:'',
         name:'',
         lastName:'',
-        userPic:'',
         country:''
     })
     const [errors,setErrors] = useState([])
@@ -63,6 +62,7 @@ const Register = (props) => {
         const data = await createNewUser(newUser)
       
         if(data.errores){
+            console.log(data.errores)
             setErrors(data.errores.details)
         }else{
             setErrors([])

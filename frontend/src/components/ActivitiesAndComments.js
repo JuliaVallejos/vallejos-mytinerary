@@ -3,7 +3,7 @@ import Swal from 'sweetalert2'
 import {useState} from 'react'
 import {connect} from 'react-redux'
 import itinerariesActions from '../redux/actions/itinerariesActions'
-import usersActions from '../redux/actions/usersActions'
+
 
 const ActivitiesAndComments = (props) =>{
    
@@ -16,8 +16,6 @@ const ActivitiesAndComments = (props) =>{
 
     const post_comment = async (e) =>{
         e.preventDefault()
-        
-        
         if(valueInput===''){
             Swal.fire('Please comment something')
     }else{
@@ -27,8 +25,6 @@ const ActivitiesAndComments = (props) =>{
             Swal.fire('Error')
         }else{
            setValueInput('')
-           props.itinerariesByCity(props.singleCity._id)
-          
         }}
     }
     return(
@@ -55,7 +51,7 @@ const ActivitiesAndComments = (props) =>{
                     )
                 })}
                 {loggedUser?
-                <div className='commentary'><input className='input_comment' value={valueInput} onChange={readInput} type='text' placeholder='Comment here'></input> <button type='submit' onClick={post_comment} className="fas fa-share"></button></div>:
+                <div className='commentary'><input className='input_comment' value={valueInput} onChange={readInput} type='text' placeholder='Comment here'></input> <button type='submit' onClick={post_comment} className="fas fa-share"><span>Send</span></button></div>:
                 <p className='guest'>Please Login to comment</p>}
             </div> 
         </div>
@@ -65,13 +61,12 @@ const ActivitiesAndComments = (props) =>{
 const mapStateToProps = state =>{
     return {
         loggedUser : state.user.loggedUser,
-        singleCity :state.city.singleCity
+      
     }
     
 }
 const mapDispatchToProps = {
-    add_comment : usersActions.add_comment,
-    itinerariesByCity:itinerariesActions.itinerariesByCity
-   
+    add_comment :itinerariesActions.add_comment
+ 
 }
 export default connect(mapStateToProps,mapDispatchToProps)(ActivitiesAndComments)

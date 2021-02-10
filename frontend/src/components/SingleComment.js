@@ -1,7 +1,7 @@
 import {connect} from 'react-redux'
 import Swal from 'sweetalert2'
 import {useState} from 'react'
-import usersActions from '../redux/actions/usersActions'
+
 import itinerariesActions from '../redux/actions/itinerariesActions'
 
 const SingleComment = (props) =>{
@@ -9,15 +9,28 @@ const SingleComment = (props) =>{
     const {idUser,comment,_id} = props.single_comment
     const [edit,setEdit] = useState(false)
     const [editedComment,setEditedComment] = useState(comment)
-  
 
    const delete_comment = async ()=>{
-       const data = await props.deleteComment(props.idItinerary,_id)
-       if(data.data.errores){
-        Swal.fire('Error')
-    }else{
-       props.itinerariesByCity(props.singleCity._id)
-    }
+    Swal.fire({
+        title: 'Are you sure?',
+        width:'300',
+     
+        text: "You won't be able to revert this!",
+        icon: 'warning',
+        showCancelButton: true,
+        confirmButtonColor: '#3085d6',
+        cancelButtonColor: '#d33',
+        confirmButtonText: 'Yes, delete it!'
+      }).then(async (result) => {
+        if (result.isConfirmed) {
+            const data = await props.deleteComment(props.idItinerary,_id)
+            if(data.data.errores){
+                Swal.fire('Error')
+            }
+          
+        }
+      })
+      
    }
   const readInput= ()=>{
       setEditedComment(document.getElementById('edited_comment').value)
@@ -29,7 +42,6 @@ const SingleComment = (props) =>{
         Swal.fire('Error')
      }else{
         setEdit(false)
-        props.itinerariesByCity(props.singleCity._id)
     } } 
 
     
@@ -42,11 +54,11 @@ const SingleComment = (props) =>{
                     
                 </div>
                 <div className='controls'>
-                    {!edit?<p>{comment}</p>: <div className='edit_comment'><textarea col='2' onChange={readInput} id='edited_comment' value={editedComment}/><button className='fas fa-share' onClick={send_new_comment}> Send </button></div>}
-                   {props.loggedUser._id===idUser._id && 
+                    {!edit?<p>{comment}</p>: <div className='edit_comment'><textarea col='2' onChange={readInput} id='edited_comment' value={editedComment}/><button className='fas fa-share' onClick={send_new_comment}><span>Send</span></button></div>}
+                   {props.loggedUser && props.loggedUser._id===idUser._id && 
                    <div className='btn_controls'>
-                       <i onClick={delete_comment} className='far fa-trash-alt'></i>
-                       <i onClick={()=>setEdit(true)} className="fas fa-edit"></i>
+                       <button onClick={delete_comment} className='far fa-trash-alt'></button>
+                       <button onClick={()=>setEdit(true)} className="fas fa-edit"></button>
                     </div>}
                     
                 </div>
@@ -59,13 +71,12 @@ const SingleComment = (props) =>{
 const mapStateToProps = state => {
     return {
         loggedUser : state.user.loggedUser,
-        singleCity :state.city.singleCity
-        
+       
 }}
 const mapDispatchToProps = {
    
-    editComment: usersActions.editComment,
-    deleteComment : usersActions.deleteComment,
-    itinerariesByCity:itinerariesActions.itinerariesByCity
+    editComment: itinerariesActions.editComment,
+    deleteComment : itinerariesActions.deleteComment,
+   
 }
 export default connect(mapStateToProps,mapDispatchToProps)(SingleComment)

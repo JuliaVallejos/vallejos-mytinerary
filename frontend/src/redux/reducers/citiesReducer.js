@@ -23,6 +23,12 @@ function citiesReducer(state= initialState, action){
                 ...state,
                 filteredCities:state.cities.filter(({cityName}) => cityName.toUpperCase().indexOf(action.payload.toUpperCase().trim())=== 0)
             }
+        case 'NEW_CITY':
+          
+            return{
+                ...state,
+                newCity:action.payload
+            }
             
         case 'SINGLE_CITY':
                 /* obtener city por id */
@@ -32,8 +38,7 @@ function citiesReducer(state= initialState, action){
                 singleCity:state.cities.find(city => city._id === action.payload),
                 loading:false
                
-            }
-             
+            }  
             
         case 'LOADING':
             /* preloader */

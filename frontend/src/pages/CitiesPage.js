@@ -31,8 +31,11 @@ const CitiesPage= (props) =>{
          
          <Header/>
         <div className="cities_page">
+            
             <h3>Cities</h3>
+          
             <input id='search' type='text' placeholder='Find your City!' onChange={readInput} ></input>
+            <Link to='/addCity'><p>Add City</p></Link>
             {(loading && newCities.length===0)&&<PulseLoader loading={loading}  color={'brown'} size={20}/>}
             <CitiesList cities={newCities} />
             {(newCities.length===0 && loading===false)&& <NoResults/>}
@@ -45,7 +48,8 @@ const CitiesPage= (props) =>{
      return{
        
          newCities : state.city.filteredCities,
-         loading:state.city.loading
+         loading:state.city.loading,
+         loggedUser:state.user.loggedUser
      }
 
  }

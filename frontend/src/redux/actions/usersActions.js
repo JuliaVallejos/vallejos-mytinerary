@@ -47,12 +47,15 @@ const usersActions={
           }
           
         } catch(error){
-          if(error.response.status===401){
+          
+        if(error.response)
+          {if(error.response.status===401){
             localStorage.clear()
             Swal.fire('You are not authorized')
             const backToHome ='/'
-            return backToHome
-          }
+            return backToHome}
+          }else {
+          return error}
         }
           
         }
@@ -60,96 +63,8 @@ const usersActions={
     logout_user:()=>{
       return async (dispatch,getstate) => {
       dispatch({type:'LOGOUT', payload:''})
-    }},
+    }}
    
-    add_comment: (newComment,idItinerary) =>{
-      return async (dispatch,getstate) => {
-       const token = getstate().user.loggedUser.token
-       
-        try{
-          const data = await axios.post(`http://localhost:4000/api/itineraries/${idItinerary}`,{newComment},
-          {
-            headers:{
-              Authorization: `Bearer ${token}`
-            }})
-          
-          if (data.data.success){
-            dispatch({type:'NO_CHANGES', payload:''})
-            return data
-          }
-          
-        } catch(error){
-          console.log(error)
-          const data ={errores:{details:[{message:'An error occurred'}]}}
-          return data
-
-        }
-       
-      }},
-    editComment: (idItinerary,idComment,editedComment) =>{
-        return async (dispatch,getstate) => {
-          try{
-            
-            const data = await axios.put(`http://localhost:4000/api/itineraries/${idItinerary}/${idComment}`,{editedComment})
-            if (data.data.success){
-              dispatch({type:'NO_CHANGES', payload:''})
-              return data
-            }  
-        } catch(error){
-          const data ={errores:{details:[{message:'An error occurred'}]}}
-          return data
-        }
-        
-      }},
-      deleteComment: (idItinerary,idComment)=>{
-        return async (dispatch,getstate) => {
-          try{
-          const data = await axios.delete(`http://localhost:4000/api/itineraries/${idItinerary}/${idComment}`)
-          if (data.data.success){
-            dispatch({type:'NO_CHANGES', payload:''})
-            return data
-          }  }  
-       catch(error){
-          
-          const data ={errores:{details:[{message:'An error occurred'}]}}
-          return data
-         
-      }}},
-     setLike: (idItinerary,bool) =>{
-        return async (dispatch,getstate) =>{
-       console.log(idItinerary,bool)
-          const idUser = getstate().user.loggedUser._id
-          if(bool==='true'){
-            try{
-             
-              const data = await axios.post(`http://localhost:4000/api/likes/${idItinerary}`,{idUser})
-              if (data.data.success){
-                dispatch({type:'NO_CHANGES', payload:''})
-                return data
-                
-              }}  
-           catch(error){
-              const data ={errores:{details:[{message:'An error occurred'}]}}
-              return data
-            }
-          }else{
-            try{
-            
-             const data = await axios.delete(`http://localhost:4000/api/likes/${idItinerary}`,{data:{idUser}})
-              if (data.data.success){
-                dispatch({type:'NO_CHANGES', payload:''})
-                return data
-              }}  
-           catch(error){
-             
-             console.log(error)
-              const data ={errores:{details:[{message:'An error occurred'}]}}
-              return data
-            }
-          }
-          
-        }
-      }
     } 
 export default usersActions
 

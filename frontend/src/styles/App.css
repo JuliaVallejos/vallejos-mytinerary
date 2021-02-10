@@ -39,6 +39,10 @@ header nav{
     display:flex;
     width:100%;
     justify-content: space-between;
+    align-items:center
+}
+.nav_buttons p{
+    padding-right:2%;
 }
 .links{
     display:flex;
@@ -337,15 +341,35 @@ input#search{
 
 .info_data{
     display:flex;
-    justify-content:space-around
+    justify-content:space-around;
+    height:6vh;
+    align-items:center
+    
+}
+.info_data p{
+    margin:0;
+    padding:0
 }
 .info_data button{
-    outline: none;
     border:none;
     background-color: transparent;
     font-size: 1.2em;
     
 }
+.info_data button:focus{
+   
+    border:none;
+    outline:none
+}
+.likes{
+    display:flex;
+    align-items:center
+}
+.likes p{
+    margin:0;
+    padding-right:5px
+}
+
 .red{
     color:red;
    
@@ -457,11 +481,28 @@ input#search{
     justify-content:space-between
 }
 .btn_controls{
+    
     margin-left:2%;
     display:flex;
     flex-direction: column;
+    align-items:flex-start;
     justify-content: space-between;
     height: 6vh;
+}
+.btn_controls button, .commentary button{
+  
+    border:none;
+    outline:none;
+    font-size:1.2em;
+    background-color: transparent;
+}
+.btn_controls button:focus, .commentary button:focus{
+    border:none;
+    outline:none;
+}
+button span{
+    font-family: 'Yusei Magic', sans-serif;
+    padding: 0 5px;
 }
 .edit_comment{
     width:90%;
@@ -560,7 +601,6 @@ form input:focus{
     margin:1.5%;
     padding-left:3%;
     background-color:  rgba(58, 158, 240, 0.267);
-    
     border-radius: 10px;
 }
 p.errors{

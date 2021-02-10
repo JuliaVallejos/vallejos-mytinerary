@@ -32,19 +32,25 @@ const usersController={
                 return  res.json({success:false,errores:{details:[{message:'Wrong username or password '}]}})
             }
             const passwordTrue = bcryptjs.compareSync(password, userExists.password)
-            if(!passwordTrue){ 
-                return res.json({success:false,errores:{details:[{message:'Wrong username or password '}]}})
-            }
             if(userExists.googleUser===true && !login_google){
                 return res.json({success:false,errores:{details:[{message:'You must Login with Google'}]}})
             }
+            if(!passwordTrue){ 
+                return res.json({success:false,errores:{details:[{message:'Wrong username or password '}]}})
+            }
+            
             var token = jwt.sign({...userExists}, process.env.SECRET_KEY, {})
             return res.json({success: true, response: {_id:userExists._id,name: userExists.name,userPic: userExists.userPic,token}})
         
         })
     },
     login_LS: (req,res) =>{
+        if(req.user){
             return res.json({success: true, response: {_id:req.user._id,name: req.user.name,userPic: req.user.userPic,token:req.body.token}}) 
+        } else{
+            res.json({success:false,error})
+        }    
+            
 
     },
     all_users: (req,res) =>{

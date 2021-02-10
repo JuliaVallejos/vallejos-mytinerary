@@ -7,7 +7,8 @@ const citiesActions={
         return async (dispatch,getstate) => {
           try{
             const data = await axios.get('http://localhost:4000/api/cities')
-            dispatch({type:'ALL_CITIES', payload:data.data.response})}
+            dispatch({type:'ALL_CITIES', payload:data.data.response})
+            return data.data.response}
           catch(error){
             setTimeout(function(){
               alert('Error, back to Home')
@@ -16,6 +17,19 @@ const citiesActions={
            
           }
         }},
+    addCity: newCity =>{
+      return async (dispatch,getstate) =>{
+        try{
+          const data= await axios.post('http://localhost:4000/api/cities',newCity)
+          
+          dispatch({type:'NEW_CITY',payload:data.data})
+          return data
+        }catch(error){
+
+          return error
+        }
+      }
+    },
       /* filtro de búsqueda */
     filterCities: city_search =>{
       return async (dispatch,getstate) =>{

@@ -1,29 +1,36 @@
 import MoreInfo from './MoreInfo'
 import {connect} from 'react-redux'
-import usersActions from '../redux/actions/usersActions'
 import itinerariesActions from '../redux/actions/itinerariesActions'
+import Swal from 'sweetalert2'
 
 /* mapeo de itinerarios */
 const ItinerariesList = (props) =>{
 
-   
     const like_it = e =>{
         const idItinerary= e.target.id
         const bool = e.target.value
-        console.log(bool)
-      
        props.setLike(idItinerary,bool)
        .then( data =>{
-        props.itinerariesByCity(props.singleCity._id)
-        console.log(data.data.message)
+  
+        Swal.fire({
+            icon: 'success',
+            width: '200',
+            toast:'true',
+            title: data.data.message,
+            showConfirmButton: false,
+            timer: 1200
+          })
        })
-       .catch(error => console.log(error))
+       .catch(error => {
+           
+           Swal.fire('An error ocurred')})
     }
   
    return(
        
             <div className='itineraries_list'>
-                { props.itinerariesList.map(({_id,title,userName,userPic,likes,duration,price,hashtags,activities,comments}) => {
+         
+                {props.itinerariesList.map(({_id,title,userName,userPic,likes,duration,price,hashtags,activities,comments}) => {
                   
                 return (
                     
@@ -41,7 +48,11 @@ const ItinerariesList = (props) =>{
                             <div className="info">
                                 <div className="info_data">
                                    
-                                    <p>{`${likes.length} `}<button id={_id} onClick={like_it} className={likes.includes(props.loggedUser._id)? 'fas fa-heart red' : 'far fa-heart'} value={likes.includes(props.loggedUser._id)? 'false' : 'true'}></button></p>
+                                    <div className='likes'>
+                                        {console.log(likes.length,_id)}
+                                        <p>{`${likes.length} `}</p>
+                                        {props.loggedUser? <button id={_id} onClick={like_it} className={likes.includes(props.loggedUser._id)? 'fas fa-heart red' : 'far fa-heart'} value={likes.includes(props.loggedUser._id)? 'false' : 'true'}></button> : <i className='far fa-heart'></i>}
+                                    </div>
                                     <p>{`Duration: ${duration} hs`}</p>
                                     <p>{'$'.repeat(price)}</p>
                                 
@@ -65,12 +76,18 @@ const ItinerariesList = (props) =>{
 }
 const mapStateToProps = state => {
     return{
+        itinerariesList:state.itinerary.newItineraries,
+       
         loggedUser:state.user.loggedUser,
-        singleCity :state.city.singleCity
+        singleCity :state.city.singleCity,
+   
+     
+       
     }
 }
 const mapDispatchToProps = {
-   setLike :usersActions.setLike,
+    setLoading:itinerariesActions.setLoading,
+   setLike :itinerariesActions.setLike,
    itinerariesByCity:itinerariesActions.itinerariesByCity
 }
 

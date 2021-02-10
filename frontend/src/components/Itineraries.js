@@ -11,26 +11,28 @@ import PulseLoader from "react-spinners/PulseLoader"
 
 const Itineraries = (props) =>{
     const id = props.match.params.id 
-    const {getCityById,itinerariesByCity,city,itinerariesList,loading,setLoading,loggedUser} = props
- 
+    const {getCities,getCityById,itinerariesByCity,city,itinerariesList,loading,setLoading} = props
+
     useEffect(() => {
-        setLoading(true)
+         setLoading(true)
+        getCities()
+        .then( () =>{
         getCityById(id)
-        itinerariesByCity(id)
+        itinerariesByCity(id)})
         
-    },[id,getCityById,itinerariesByCity,setLoading])
+    },[id,setLoading,getCities,getCityById,itinerariesByCity])
 
     useEffect(() => {
         window.scrollTo(0, 0)
        }, [])
-       
-
+      
     return(
        
         <div className='itineraries_page'>
             <SecondHeader />
             <h3>Itineraries</h3>
-            {(city && itinerariesList )?
+           
+            {( city && itinerariesList )?
             <div className='city_itineraries' style={{
                     backgroundImage:`url(${city.cityPic})`,
                     backgroundSize:'cover',
@@ -38,11 +40,10 @@ const Itineraries = (props) =>{
                     backgroundPosition:'center'}}>
               
               <h5>{props.city.cityName}</h5>
-              {loggedUser&& <Link to='/addItinerary'><span>Add Itinerary</span></Link>}
-              
+            
                 <div className='itineraries'>
                 {loading===true ? <PulseLoader loading={loading}  color={'brown'} size={25}/>:
-                    itinerariesList.length===0 ? <h4>No itineraries yet. Make one!</h4> : <ItinerariesList itinerariesList={itinerariesList}/>}
+                    itinerariesList.length===0 ? <h4>No itineraries yet. Make one!</h4> : <ItinerariesList/>}
                 </div>
                 <div className='buttons'>
                     <Link to='/cities'>
@@ -52,7 +53,7 @@ const Itineraries = (props) =>{
                     <button className="back">Back to Home</button>
                     </Link>
                 </div>
-            </div> : <div className='itineraries'> <h1 className='error'>Please go Back to Home or Cities</h1></div>}
+            </div>  : <div className='itineraries'> <h1 className='error'>Please go Back to Home or Cities</h1></div> }
         
         </div>
        
@@ -63,9 +64,11 @@ const mapStateToProps = state =>{
         itinerariesList: state.itinerary.itineraries,
         loading:state.itinerary.loading,
         loggedUser:state.user.loggedUser
+      
     }
 }
 const mapDispatchToProps = {
+        getCities: citiesActions.getCities,
         getCityById: citiesActions.getCityById,
         itinerariesByCity: itinerariesActions.itinerariesByCity,
         setLoading: itinerariesActions.setLoading

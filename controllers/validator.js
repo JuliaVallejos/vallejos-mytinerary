@@ -3,7 +3,7 @@ const Joi = require('joi')
 const validator = {
     validAccount: (req,res,next) =>{
         const schema =Joi.object({
-            username: Joi.string().trim().required().email({tlds:{allow:false}}),
+            username: Joi.string().trim().required().email({tlds:{allow:false}}).message('"username" is not a valid email'),
             password:Joi.string().trim().required().pattern(/(?=.*\d)/).min(5),
             name: Joi.string().trim().required().min(2).max(12),
             lastName:Joi.string().trim().required().min(2).max(25),
@@ -16,6 +16,7 @@ const validator = {
         if (!validation.error){
             next()
         }else{
+
             res.json({success:false,errores:validation.error})
         }
     }

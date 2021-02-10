@@ -11,24 +11,27 @@ const Nav = (props) =>{
     return(
         <nav>
           <div className='nav_buttons'>
-              {loggedUser&& <p>Hi {loggedUser.name}</p> }
-            <div onClick={()=> setOpenMenu(!openMenu)} className='user_pic btn_dropdown' style={
-                { backgroundImage:`url(${loggedUser? loggedUser.userPic : photo.default})`,backgroundSize:'cover',backgroundPosition:'center'}}></div>
-            <div className='links'>
-                <Link to='/'>
-                <p>HOME</p>
-                </Link>
-                <Link to='/cities'>
-                <p>CITIES</p>
-                </Link>
-            </div>  
+              {loggedUser&& <p>{loggedUser.name}</p> }
+                <div onClick={()=> setOpenMenu(!openMenu)} className='user_pic btn_dropdown' style={
+                { backgroundImage:`url(${loggedUser? loggedUser.userPic : photo.default})`,backgroundSize:'cover',backgroundPosition:'center'}}>
+
+                </div>
+                <div className='links'>
+                    <Link to='/'>
+                    <p>HOME</p>
+                    </Link>
+                    <Link to='/cities'>
+                    <p>CITIES</p>
+                    </Link>
+                </div>  
            
 
           </div>
           {openMenu&& 
                     <div className='dropdown_content'>
+                        {/* si hay un usuario logueado el onclick ejecuta la funcion de desloguear*/}
                         <Link onClick={loggedUser&& logout_user} to='/login'><p>{loggedUser? 'Log Out' : 'Log In'}</p></Link>
-                        {!loggedUser&& <Link to='/register'><p>Register</p></Link>}
+                        {!loggedUser && <Link to='/register'><p>Register</p></Link> }
                     </div>}
           
                 

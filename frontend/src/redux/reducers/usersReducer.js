@@ -1,5 +1,6 @@
 const initialState ={
     loggedUser:null,
+    itineraryModified:{}
     
 }
  function usersReducer(state= initialState,action){
@@ -13,8 +14,7 @@ const initialState ={
         return {
             ...state,
             loggedUser:action.payload,
-           
-         
+        
         }
        
         case 'LOGOUT':
@@ -22,11 +22,10 @@ const initialState ={
            
             return{
                 ...state,
-                loggedUser:null,
-                loggedUserId:''
+                loggedUser:null
+                
             }
-        case 'NO_CHANGES':
-            return state
+      
       
         default:
             return state

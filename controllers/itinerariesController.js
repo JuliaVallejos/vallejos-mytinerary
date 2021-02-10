@@ -31,7 +31,7 @@ const itinerariesController={
            comment:req.body.newComment}
    
       
-        Itinerary.findOneAndUpdate({_id:idItinerary},{ $push: { 'comments': newComment}},{new:true})
+        Itinerary.findOneAndUpdate({_id:idItinerary},{ $push: { 'comments': newComment}},{new:true}).populate('idCity').populate('comments.idUser')
         .then( itinerary =>{
             
             res.json({success:true,message:'Comment added',itinerary})
@@ -45,7 +45,7 @@ const itinerariesController={
     
         const idItinerary= req.params.idItinerary
         const idComment=req.params.idComment
-        Itinerary.findOneAndUpdate({_id:idItinerary},{ $pull: {comments: {_id:idComment}}},{new:true}) 
+        Itinerary.findOneAndUpdate({_id:idItinerary},{ $pull: {comments: {_id:idComment}}},{new:true}).populate('idCity').populate('comments.idUser')
         .then( itinerary => res.json({success:true,message:'Comment deleted',itinerary}))
         .catch(error => res.json({success:false,error}))
 
@@ -57,7 +57,7 @@ const itinerariesController={
         const idComment=req.params.idComment
         const editedComment = req.body.editedComment
        
-        Itinerary.findOneAndUpdate({_id:idItinerary,'comments._id':idComment},{ $set: {'comments.$.comment':editedComment}},{new:true}) 
+        Itinerary.findOneAndUpdate({_id:idItinerary,'comments._id':idComment},{ $set: {'comments.$.comment':editedComment}},{new:true}).populate('idCity').populate('comments.idUser')
         .then( itinerary => res.json({success:true,message:'Comment edited',itinerary}))
         .catch(error => res.json({success:false,error}))
 
@@ -65,7 +65,7 @@ const itinerariesController={
     addLike : (req,res) =>{
         const idItinerary = req.params.idItinerary
         const idUser = req.body.idUser
-        Itinerary.findOneAndUpdate({_id:idItinerary},{$push: { 'likes': idUser}},{new:true})
+        Itinerary.findOneAndUpdate({_id:idItinerary},{$push: { 'likes': idUser}},{new:true}).populate('idCity').populate('comments.idUser')
         .then( itinerary =>{
             
             res.json({success:true,message:'Like added',itinerary})
@@ -74,13 +74,13 @@ const itinerariesController={
 
     },
     removeLike: (req,res) =>{
-        console.log(req.body)
+        
         const idItinerary = req.params.idItinerary
         const idUser = req.body.idUser
         
-        Itinerary.findOneAndUpdate({_id:idItinerary},{$pull: {likes: idUser}},{new:true})
+        Itinerary.findOneAndUpdate({_id:idItinerary},{$pull: {likes: idUser}},{new:true}).populate('idCity').populate('comments.idUser')
         .then( itinerary =>{
-            console.log(itinerary.likes)
+            
             res.json({success:true,message:'Like deleted',itinerary})
         } )
 
