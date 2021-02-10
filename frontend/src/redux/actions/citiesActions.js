@@ -22,10 +22,11 @@ const citiesActions={
       return async (dispatch,getstate) =>{
         try{
           const data= await axios.post('http://localhost:4000/api/cities',newCity)
-          
+          console.log(data)
           dispatch({type:'NEW_CITY',payload:data.data})
           return data
         }catch(error){
+          console.log(error)
 
           return error
         }

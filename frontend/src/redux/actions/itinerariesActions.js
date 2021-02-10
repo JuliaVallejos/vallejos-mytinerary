@@ -23,7 +23,8 @@ const itinerariesActions={
     
 add_comment: (newComment,idItinerary) =>{
     return async (dispatch,getstate) => {
-        const token = getstate().user.loggedUser.token
+       
+        const token = getstate().user.loggedUser? getstate().user.loggedUser.token : ''
         
         try{
         const data = await axios.post(`http://localhost:4000/api/itineraries/${idItinerary}`,{newComment},
@@ -36,14 +37,18 @@ add_comment: (newComment,idItinerary) =>{
             dispatch({type:'CHANGES', payload:data.data.itinerary})
             return data
         }
-        
-        } catch(error){
-        console.log(error)
-        const data ={errores:{details:[{message:'An error occurred'}]}}
-        return data
-
-        }
-        
+          
+    } catch(error){
+      
+    if(error.response)
+      {if(error.response.status===401){
+       
+       const data = {error:'Please Login to Comment'}
+       
+        return data}
+      }else {
+      return error}
+    }
     }},
     editComment: (idItinerary,idComment,editedComment) =>{
         return async (dispatch,getstate) => {

@@ -20,9 +20,9 @@ const ActivitiesAndComments = (props) =>{
             Swal.fire('Please comment something')
     }else{
         const data = await add_comment(valueInput,idItinerary)
-        
-        if(data.data.errores){
-            Swal.fire('Error')
+     
+        if(data.error){
+            Swal.fire(data.error)
         }else{
            setValueInput('')
         }}
@@ -50,9 +50,9 @@ const ActivitiesAndComments = (props) =>{
                         <SingleComment key={comment._id} single_comment={comment} idItinerary={idItinerary}/> 
                     )
                 })}
-                {loggedUser?
-                <div className='commentary'><input className='input_comment' value={valueInput} onChange={readInput} type='text' placeholder='Comment here'></input> <button type='submit' onClick={post_comment} className="fas fa-share"><span>Send</span></button></div>:
-                <p className='guest'>Please Login to comment</p>}
+        
+                <div className='commentary'><input className='input_comment' value={valueInput} onChange={readInput} type='text' placeholder='Comment here'></input> <button type='submit' onClick={post_comment} className="fas fa-share"><span>Send</span></button></div>
+            
             </div> 
         </div>
     )

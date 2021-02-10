@@ -31,7 +31,7 @@ const AddCity = (props) =>{
         
             const data = await props.addCity(newCity)
         
-            if(data.success){
+            if(data.data.success){
 
                 Swal.fire(`City Added`)
                 props.history.push('/cities')
@@ -44,13 +44,17 @@ const AddCity = (props) =>{
             <div className='cities_page'>
                 <Header/>
                 <h3>Add City</h3>
-                <form>
+                
+                <form className='add_city'>
+                <h6>Complete your new city</h6>
+                    
                         <label htmlFor='cityName'><i className="fas fa-map-signs"></i><input type='text' name='cityName' placeholder='City Name*' onChange={readForm}/></label>
                         <label htmlFor='cityPic'><i className="fas fa-camera"></i><input type='text'name='cityPic' placeholder='City Photo*' onChange={readForm}/></label>
                         <label htmlFor='cityCountry'><i className="fas fa-globe-americas"></i><input type='text'name='cityCountry' placeholder='Country*' onChange={readForm}/></label>
                         <button className='back' onClick={send_data} type='submit'>Submit</button>
-                        {error&& <p>{error}</p>}
-                    </form> 
+                    
+                        <p>{error&& error}</p>
+                </form> 
             </div>
         ) 
     }

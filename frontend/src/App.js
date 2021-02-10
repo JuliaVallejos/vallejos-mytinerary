@@ -25,7 +25,7 @@ function App(props) {
       <Route path='/cities' component={CitiesPage}/>
       <Route path='/itineraries/:id' component={Itineraries}/>
       <Route path='/addCity' component ={AddCity}/>
-      <Route path='/login' component={LogIn}/>
+     
 
     </>
   }else if(localStorage.getItem('token')){
