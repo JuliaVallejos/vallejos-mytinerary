@@ -97,9 +97,10 @@ header nav p{
     width:40vw;
     height:100%;
     background-image:url("../assets/logo.png");
-    background-size:45%;
+    background-size:42%;
     background-repeat:no-repeat;
-    margin: 1% 6%;
+    margin: 0 6%
+
 }
 /* HOME PAGE*/
 .home_page{
@@ -290,6 +291,12 @@ input#search{
     display:flex;
     flex-direction: column;
     align-items: center;
+}
+.btn_add{
+    color:rgba(46, 0, 0, 0.856)
+}
+.btn_add:hover{
+    color:rgba(0, 0, 0, 0.733)
 }
 .add_city{
     background-color:rgba(231, 154, 154, 0.541);
@@ -528,6 +535,7 @@ button span{
 }
 .input_comment{
     height:2.2em;
+    border-radius:5px;
     width:80%;
     font-size:0.7em;
     margin:0 2%;
@@ -679,7 +687,7 @@ footer nav {
 }
 footer nav a{
     width:40%;
-    height: 33%;
+    height: 45%;
 
 }
 footer nav p{

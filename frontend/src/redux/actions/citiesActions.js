@@ -1,5 +1,5 @@
 import axios from 'axios'
-
+import Swal from 'sweetalert2'
 
 const citiesActions={
   /* obtener todas las ciudades */
@@ -11,7 +11,7 @@ const citiesActions={
             return data.data.response}
           catch(error){
             setTimeout(function(){
-              alert('Error, back to Home')
+              Swal.fire('Error, back to Home')
               window.location.href ='/'
             },4000)
            
@@ -22,12 +22,11 @@ const citiesActions={
       return async (dispatch,getstate) =>{
         try{
           const data= await axios.post('http://localhost:4000/api/cities',newCity)
-          console.log(data)
+         
           dispatch({type:'NEW_CITY',payload:data.data})
           return data
         }catch(error){
-          console.log(error)
-
+          
           return error
         }
       }

@@ -14,11 +14,10 @@ module.exports= passport.use(new jwtStrategy({
                 return done(null,false)
             }else{
                
-                
                 return done(null,user)
             } 
     }catch(error) {
-      console.log(error)
+      
         return done(error,false)
     }
 }))

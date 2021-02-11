@@ -1,4 +1,5 @@
 import axios from 'axios'
+import Swal from 'sweetalert2'
 
 const itinerariesActions={
     /* ver todos los itinerarios de una ciudad */
@@ -9,7 +10,7 @@ const itinerariesActions={
                 dispatch({type:'ALL_CITY_ITINERARIES', payload:data.data.response})}
             catch(error){
                 setTimeout(function(){
-                    alert('Error, back to Home')
+                    Swal.fire('Error, back to Home')
                     window.location.href ='/'
                   },5000)
                 }  

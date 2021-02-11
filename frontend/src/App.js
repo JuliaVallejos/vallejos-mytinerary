@@ -1,7 +1,7 @@
 import './styles/media.css'
 import './styles/App.css';
 
-import {Route,BrowserRouter,Switch, Redirect} from 'react-router-dom'
+import {Route,BrowserRouter,Switch} from 'react-router-dom'
 import {connect} from 'react-redux'
 import {useState} from 'react'
 import HomePage from './pages/HomePage'
@@ -34,9 +34,7 @@ function App(props) {
       {
         if(backToHome==='/'){
         setRenderAgain(!renderAgain)}
-        else{ /* se ejecuta si se cae el servidor y habia un usuario en LS */
-         
-          setRenderAgain(!renderAgain)}
+        
     })
     .catch(error => setRenderAgain(!renderAgain))
   }
@@ -48,7 +46,7 @@ function App(props) {
     <Route path='/itineraries/:id' component={Itineraries}/> 
     <Route path='/register' component={Register}/>
     <Route path='/login' component={LogIn}/>
-    <Redirect to='/'/>
+    
     
   </>}
 
@@ -57,10 +55,8 @@ function App(props) {
       <BrowserRouter>
         <Switch>
         {routes}
-        
         </Switch>
         <Footer/>
-        
       </BrowserRouter>
       
     </div>

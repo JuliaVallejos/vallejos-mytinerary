@@ -23,7 +23,7 @@ const LogIn = (props) => {
     }
     const responseGoogle = async (response) => {
         if(response.error){
-            Swal.fire('Error in LogIn')
+            Swal.fire('Error in Login')
         }else{
            const data = await props.login_user({
                 username:response.profileObj.email,
@@ -69,6 +69,7 @@ const LogIn = (props) => {
                         return ( <p className='errors' key={index}>{error.message}</p>)
                     })}
                 <GoogleLogin
+                className='btn_google'
                 clientId="801455530732-u3v9b8l6s48ctj7nui20nn724mahsoff.apps.googleusercontent.com"
                 buttonText="Login whith Google"
                 onSuccess={responseGoogle}

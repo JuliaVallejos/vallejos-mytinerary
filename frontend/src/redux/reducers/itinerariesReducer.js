@@ -23,7 +23,7 @@ function itinerariesReducer(state= initialState, action){
                 loading:action.payload
             }  
         case 'CHANGES':
-           console.log(action.payload._id) 
+         
             return {
                 ...state,
                 loading:false,

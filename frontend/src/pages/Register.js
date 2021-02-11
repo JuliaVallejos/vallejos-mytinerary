@@ -29,7 +29,7 @@ const Register = (props) => {
     }
     const responseGoogle = async (response) => {
         if(response.error){
-            Swal.fire('Error in SigUp')
+            Swal.fire('Error in Sign Up')
         }else{
            const data = await createNewUser({
                 username:response.profileObj.email,
@@ -62,7 +62,7 @@ const Register = (props) => {
         const data = await createNewUser(newUser)
       
         if(data.errores){
-            console.log(data.errores)
+           
             setErrors(data.errores.details)
         }else{
             setErrors([])
@@ -89,6 +89,7 @@ const Register = (props) => {
                         return ( <p className='errors' key={index}>{error.message}</p>)
                     })}
                     <GoogleLogin
+                        className='btn_google'
                         clientId="801455530732-u3v9b8l6s48ctj7nui20nn724mahsoff.apps.googleusercontent.com"
                         buttonText="Create Account"
                         onSuccess={responseGoogle}

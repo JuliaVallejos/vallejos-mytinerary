@@ -35,7 +35,7 @@ const CitiesPage= (props) =>{
             <h3>Cities</h3>
           
             <input id='search' type='text' placeholder='Find your City!' onChange={readInput} ></input>
-            {props.loggedUser&&<Link to='/addCity'><p>Add City</p></Link>}
+            {props.loggedUser&&<Link to='/addCity'><p className='btn_add'>Add City +</p></Link>}
             {(loading && newCities.length===0)&&<PulseLoader loading={loading}  color={'brown'} size={20}/>}
             <CitiesList cities={newCities} />
             {(newCities.length===0 && loading===false)&& <NoResults/>}

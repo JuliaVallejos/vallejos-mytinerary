@@ -7,7 +7,7 @@ import itinerariesActions from '../redux/actions/itinerariesActions'
 
 const ActivitiesAndComments = (props) =>{
    
-    const {activities,comments,idItinerary,loggedUser,add_comment} = props
+    const {activities,comments,idItinerary,add_comment} = props
     const [valueInput,setValueInput] = useState('')
 
     const readInput = e =>{
@@ -16,8 +16,8 @@ const ActivitiesAndComments = (props) =>{
 
     const post_comment = async (e) =>{
         e.preventDefault()
-        if(valueInput===''){
-            Swal.fire('Please comment something')
+        if(valueInput.trim()===''){
+            Swal.fire('You cannot send an empty comment!')
     }else{
         const data = await add_comment(valueInput,idItinerary)
      
@@ -58,15 +58,9 @@ const ActivitiesAndComments = (props) =>{
     )
 }
 
-const mapStateToProps = state =>{
-    return {
-        loggedUser : state.user.loggedUser,
-      
-    }
-    
-}
+
 const mapDispatchToProps = {
     add_comment :itinerariesActions.add_comment
  
 }
-export default connect(mapStateToProps,mapDispatchToProps)(ActivitiesAndComments)
+export default connect(null,mapDispatchToProps)(ActivitiesAndComments)
