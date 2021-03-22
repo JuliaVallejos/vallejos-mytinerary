@@ -11,7 +11,7 @@ app.use(cors())
 app.use(express.json()) 
 app.use('/api',router)
 
-
+//verifica si es dev  o prod//
 if (process.env.NODE_ENV === 'production') {
     app.use(express.static('client/build'))
     app.get('*', (req, res) => {
