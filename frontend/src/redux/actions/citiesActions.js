@@ -6,7 +6,7 @@ const citiesActions={
     getCities: () => {
         return async (dispatch,getstate) => {
           try{
-            const data = await axios.get('http://localhost:4000/api/cities')
+            const data = await axios.get('https://mytinerary-api.herokuapp.com/api/cities')
             dispatch({type:'ALL_CITIES', payload:data.data.response})
             return data.data.response}
           catch(error){
@@ -21,7 +21,7 @@ const citiesActions={
     addCity: newCity =>{
       return async (dispatch,getstate) =>{
         try{
-          const data= await axios.post('http://localhost:4000/api/cities',newCity)
+          const data= await axios.post('https://mytinerary-api.herokuapp.com/api/cities',newCity)
          
           dispatch({type:'NEW_CITY',payload:data.data})
           return data

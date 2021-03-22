@@ -5,7 +5,7 @@ const usersActions={
    createNewUser: newUser => {
         return async (dispatch,getstate) => {
           try{
-            const data = await axios.post('http://localhost:4000/api/user/register',newUser)
+            const data = await axios.post('https://mytinerary-api.herokuapp.com/api/user/register',newUser)
             if (data.data.success){
               dispatch({type:'LOGIN', payload:data.data.response})
               return data.data.response
@@ -20,7 +20,7 @@ const usersActions={
     login_user:newUser=>{
       return async (dispatch,getstate) => {
         try{
-          const data = await axios.post('http://localhost:4000/api/user/login',newUser)
+          const data = await axios.post('https://mytinerary-api.herokuapp.com/api/user/login',newUser)
           if (data.data.success){
             
             dispatch({type:'LOGIN', payload:data.data.response})
@@ -36,7 +36,7 @@ const usersActions={
       login_LS: (token) =>{
         return async (dispatch,getState) =>{
           try{
-          const data = await axios.post('http://localhost:4000/api/user/verification',{token},{
+          const data = await axios.post('https://mytinerary-api.herokuapp.com/api/user/verification',{token},{
             headers:{
               Authorization: `Bearer ${token}`
             }

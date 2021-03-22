@@ -23,26 +23,27 @@
         
     }
     .logo{
-        width:50vw;
+        width:80px;
         height:60%;
         background-image:url("../assets/logo.png");
         background-size: contain;
         background-repeat: no-repeat;
-        margin:2%;
-    }
+        margin: 8px;    }
     
     header nav{
         display:flex!important;
         flex-direction:column;
-        justify-content: flex-start;
         align-self:flex-end;
-        width:35%;
+        width:50%;
         height:90%;
         margin-right:3%;
+        
+      
         
     }
     .nav_buttons{
         display:flex;
+        font-size:0.6em;
         width:100%;
         justify-content: space-between;
         align-items:center
@@ -92,17 +93,15 @@
         display:flex;
         flex-direction: column;
         justify-content: space-around;
-        padding:2% 3%;
-        width:30%;
-        font-size:0.6em
+        width:38px;
+        
     }
     .dropdown_content a{
-        text-align:center;
-        margin:1% 2%;
+       margin:1% 2%;
         height:1.5em;
+        font-size:0.5em
     }
-
-
+ 
 
     /*HOME PAGE*/
    .home_page{
@@ -125,7 +124,7 @@
         padding:1%;
         text-align: center;
         color:white;
-        font-size:1em;
+        font-size:0.8em;
         padding:1%;
         margin:0;
        
@@ -163,7 +162,7 @@
     .PopularMYtineraries>h2{
         background-color: rgb(136, 12, 12);
         padding:2% 3%;
-        font-size:1.5em;
+        font-size:0.7em;
         text-align:center;
         color:whitesmoke;
         border-radius: 8px;
@@ -202,7 +201,8 @@
         color:rgb(0, 0, 0);
         user-select: none;
         font-size: 1.4em;
-    
+        display:none;
+       
     }
     .slides{
        height: 100vw;
@@ -276,7 +276,7 @@
     }
     /* ITINERARIES */
     .city_itineraries{
-        min-height: 70vh;
+        min-height: 80vh;
         padding-bottom:2%;
         display:flex;
         flex-direction: column;
@@ -303,15 +303,16 @@
         text-align: center;
         font-size:1.3em;
         background-color: rgba(245, 245, 233, 0.842);
-        width:40%;
+        width:fit-content;
         border-radius:25px;
+        padding:1% 4%;
         margin:3% 0;
         box-shadow: 0 0 8px 4px black;
     }
  
     .itineraries{
        min-height:20vh;
-        width:70%;
+        width:90%;
         margin: 2% auto;
         background-color: rgba(255, 169, 169, 0.555);
         display:flex;
@@ -323,7 +324,7 @@
     }
     .itineraries h4{
         text-align:center;
-        font-size:0.7em;
+        font-size:0.6em;
         padding:2%;
         color:white;
         background-color:rgba(132, 12, 12, 0.897);
@@ -346,7 +347,7 @@
         padding:2%;
     }
     .single_itinerary>h5{
-        font-size:0.6em;
+        font-size:0.5em;
         text-align:center;
         background-color:rgba(132,12,12);
         padding:1%;
@@ -376,13 +377,16 @@
         justify-content:space-around;
         height:6vh;
         align-items:center
-    
+
         
     }
     .info_data p{
         margin:0;
         padding:0;
-        font-size:0.6em
+        font-size:0.5em
+    }
+    div.user > h6{
+        font-size:0.3em
     }
     .info_data button{
         border:none;
@@ -417,10 +421,7 @@
         display: flex;
         border-radius:100%;
     }
-    .center_itinerary h6{
-        font-size:0.5em;
-        text-align:center;
-    }
+    
 
     .btn_info{
         width:100%;
@@ -455,11 +456,12 @@
         align-items:center;
         padding:1.2% 2%;
         color:black;
-        background-color:rgb(174, 175, 221);
+        background-color:rgba(174, 175, 221, 0.87);
         width:100%;
         text-align:center;
-        height:2.5em;
-        font-size:0.5em;
+        margin:0;
+        height:2.7em;
+        font-size:0.3em;
     }
     .single_comment{
         background-color:rgb(174, 175, 221);
@@ -467,7 +469,7 @@
         margin:2%;
         border-radius:5px;
         color:black;
-        font-size:0.5em;
+        font-size:0.3em;
     }
     .user_comment{
         display: flex;
@@ -518,6 +520,7 @@
     button span{
         font-family: 'Yusei Magic', sans-serif;
         padding: 0 5px;
+     
     }
     .edit_comment{
         width:90%;
@@ -535,7 +538,7 @@
         height:2.2em;
         border-radius:5px;
         width:80%;
-        font-size:0.7em;
+        font-size:0.4em;
         margin:0 2%;
         display:flex;
         background-color:rgb(230, 230, 247);
@@ -551,7 +554,7 @@
 
 
     button.back{
-        width:20vw;
+        width:80px;
         padding:0 2%;
         background-image:url('../assets/button.jpg');
         background-size:cover;
@@ -560,6 +563,9 @@
         color:rgb(255, 255, 255);
         border-radius: 20px;
         box-shadow: 0 0 3px 3px black;
+    }
+    div.cities_page button.back{
+       width:80px;
     }
     .error{
         text-align:center;
@@ -885,6 +891,7 @@
         color:rgb(0, 0, 0);
         user-select: none;
         font-size: 1.8em;
+        
         
      
     }

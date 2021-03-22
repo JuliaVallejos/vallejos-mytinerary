@@ -6,7 +6,7 @@ const itinerariesActions={
     itinerariesByCity:(idCity)=>{
             return async (dispatch,getstate) => {
             try{
-                const data = await axios.get(`http://localhost:4000/api/${idCity}/itineraries`)
+                const data = await axios.get(`https://mytinerary-api.herokuapp.com/api/${idCity}/itineraries`)
                 dispatch({type:'ALL_CITY_ITINERARIES', payload:data.data.response})}
             catch(error){
                 setTimeout(function(){
@@ -28,7 +28,7 @@ add_comment: (newComment,idItinerary) =>{
         const token = getstate().user.loggedUser? getstate().user.loggedUser.token : ''
         
         try{
-        const data = await axios.post(`http://localhost:4000/api/itineraries/${idItinerary}`,{newComment},
+        const data = await axios.post(`https://mytinerary-api.herokuapp.com/api/itineraries/${idItinerary}`,{newComment},
         {
             headers:{
             Authorization: `Bearer ${token}`
@@ -55,7 +55,7 @@ add_comment: (newComment,idItinerary) =>{
         return async (dispatch,getstate) => {
         try{
             
-            const data = await axios.put(`http://localhost:4000/api/itineraries/${idItinerary}/${idComment}`,{editedComment})
+            const data = await axios.put(`https://mytinerary-api.herokuapp.com/api/itineraries/${idItinerary}/${idComment}`,{editedComment})
             if (data.data.success){
             dispatch({type:'CHANGES', payload:data.data.itinerary})
             return data
@@ -69,7 +69,7 @@ add_comment: (newComment,idItinerary) =>{
     deleteComment: (idItinerary,idComment)=>{
         return async (dispatch,getstate) => {
         try{
-        const data = await axios.delete(`http://localhost:4000/api/itineraries/${idItinerary}/${idComment}`)
+        const data = await axios.delete(`https://mytinerary-api.herokuapp.com/api/itineraries/${idItinerary}/${idComment}`)
         if (data.data.success){
             dispatch({type:'CHANGES', payload:data.data.itinerary})
             return data
@@ -85,7 +85,7 @@ add_comment: (newComment,idItinerary) =>{
         const idUser = getstate().user.loggedUser._id
         if (bool==='true')
             try{
-            const data = await axios.post(`http://localhost:4000/api/likes/${idItinerary}`,{idUser})
+            const data = await axios.post(`https://mytinerary-api.herokuapp.com/api/likes/${idItinerary}`,{idUser})
             if (data.data.success){
                
                 dispatch({type:'CHANGES', payload:data.data.itinerary})
@@ -97,7 +97,7 @@ add_comment: (newComment,idItinerary) =>{
        
             try{
             
-            const data = await axios.delete(`http://localhost:4000/api/likes/${idItinerary}`,{data:{idUser}})
+            const data = await axios.delete(`https://mytinerary-api.herokuapp.com/api/likes/${idItinerary}`,{data:{idUser}})
             if (data.data.success){
                
                 dispatch({type:'CHANGES', payload:data.data.itinerary})
