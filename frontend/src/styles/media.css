@@ -391,7 +391,7 @@
     .info_data button{
         border:none;
         background-color: transparent;
-        font-size: 1.2em;
+        font-size:0.7em;
         
     }
     .info_data button:focus{
@@ -413,6 +413,7 @@
 
     .red{
         color:red;
+  
     
     }
     .user_pic{
@@ -499,12 +500,12 @@
     }
     .btn_controls{
         
-        margin-left:2%;
+        margin:2%;
         display:flex;
         flex-direction: column;
         align-items:flex-start;
         justify-content: space-between;
-        height: 6vh;
+       
     }
     .btn_controls button, .commentary button{
       
