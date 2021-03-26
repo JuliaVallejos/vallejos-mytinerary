@@ -1,7 +1,7 @@
 import './styles/media.css'
 import './styles/App.css';
 
-import {Route,BrowserRouter,Switch} from 'react-router-dom'
+import {Route,BrowserRouter,Switch,Redirect} from 'react-router-dom'
 import {connect} from 'react-redux'
 import {useState} from 'react'
 import HomePage from './pages/HomePage'
@@ -25,6 +25,7 @@ function App(props) {
       <Route path='/cities' component={CitiesPage}/>
       <Route path='/itineraries/:id' component={Itineraries}/>
       <Route path='/addCity' component ={AddCity}/>
+      <Redirect to='/'/>
      
 
     </>
@@ -46,6 +47,7 @@ function App(props) {
     <Route path='/itineraries/:id' component={Itineraries}/> 
     <Route path='/register' component={Register}/>
     <Route path='/login' component={LogIn}/>
+    <Redirect to='/'/>
     
     
   </>}

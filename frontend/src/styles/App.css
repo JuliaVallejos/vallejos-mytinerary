@@ -293,6 +293,7 @@ input#search{
     align-items: center;
 }
 .btn_add{
+    margin-bottom:10px;
     color:rgba(46, 0, 0, 0.856)
 }
 .btn_add:hover{
